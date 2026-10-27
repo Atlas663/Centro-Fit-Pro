@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENTRO FIT PRO | Catálogo Digital Cúcuta</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#FF0000',
+                            darkRed: '#D50000',
+                            glow: 'rgba(255, 0, 0, 0.4)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Montserrat & Rajdhani -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Rajdhani:wght@600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #080808;
+            color: #ffffff;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(255, 0, 0, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 70%, rgba(213, 0, 0, 0.06) 0%, transparent 40%);
+        }
+
+        .font-rajdhani {
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .neon-border {
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.25);
+            border: 1px solid rgba(255, 0, 0, 0.4);
+        }
+
+        .neon-border-hover:hover {
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+            border-color: #FF0000;
+        }
+
+        .neon-text-glow {
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0d0d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D50000;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-red selection:text-white pb-24 md:pb-12">
+
+    <!-- HEADER / BANNER DE MARCA -->
+    <header class="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b border-neutral-800">
+        <!-- Badge Superior -->
+        <div class="bg-gradient-to-r from-brand-darkRed via-brand-red to-brand-darkRed text-white text-[11px] sm:text-xs font-black tracking-widest text-center py-1.5 uppercase flex items-center justify-center gap-2 px-2">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>ENTREGAS RÁPIDAS EN CÚCUTA Y ÁREA METROPOLITANA</span>
+            <i class="fa-solid fa-location-dot ml-1"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex justify-between items-center gap-4">
+            <!-- Logo & Brand Name -->
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-black border-2 border-brand-red rounded-xl flex items-center justify-center text-brand-red shadow-[0_0_15px_rgba(255,0,0,0.4)]">
+                    <i class="fa-solid fa-dumbbell text-2xl -rotate-45"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black tracking-tight text-white font-rajdhani uppercase leading-none">
+                        CENTRO <span class="text-brand-red neon-text-glow">FIT PRO</span>
+                    </h1>
+                    <p class="text-[10px] sm:text-xs text-neutral-400 font-semibold tracking-wider uppercase mt-0.5">
+                        SUPLEMENTOS ORIGINALES PARA RESULTADOS REALES
+                    </p>
+                </div>
+            </div>
+
+            <!-- Botón del Carrito en Header -->
+            <button onclick="toggleCartDrawer()" class="relative bg-neutral-900 hover:bg-neutral-800 text-white p-3 rounded-xl border border-neutral-700 transition flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping text-brand-red text-lg"></i>
+                <span class="hidden sm:inline font-bold text-xs">MI PEDIDO</span>
+                <span id="cartCountBadge" class="bg-brand-red text-white text-xs font-black px-2 py-0.5 rounded-full min-w-[20px]">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-grow">
+
+        <!-- SEARCH AND FILTERS BAR -->
+        <div class="mb-8 space-y-4">
+            <!-- Buscador -->
+            <div class="relative max-w-xl mx-auto">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500"></i>
+                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Buscar producto, marca o ingrediente (ej. Bi-Pro, Creatina)..." 
+                    class="w-full bg-neutral-900/90 border border-neutral-800 rounded-2xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-brand-red transition">
+            </div>
+
+            <!-- Filtros de Categorías -->
+            <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-3 pt-2">
+                <button onclick="setCategory('all')" id="btn-cat-all" class="cat-btn bg-brand-red text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-brand-red transition flex items-center gap-2 shadow-[0_0_10px_rgba(255,0,0,0.3)]">
+                    <i class="fa-solid fa-border-all"></i> TODAS
+                </button>
+                <button onclick="setCategory('Proteínas')" id="btn-cat-proteinas" class="cat-btn bg-neutral-900 hover:bg-neutral-800 text-neutral-300 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-neutral-800 transition flex items-center gap-2">
+                    <i class="fa-solid fa-bottle-water text-brand-red"></i> PROTEÍNAS
+                </button>
+                <button onclick="setCategory('Creatinas')" id="btn-cat-creatinas" class="cat-btn bg-neutral-900 hover:bg-neutral-800 text-neutral-300 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-neutral-800 transition flex items-center gap-2">
+                    <i class="fa-solid fa-bolt text-brand-red"></i> CREATINAS
+                </button>
+                <button onclick="setCategory('Ganadores de Masa')" id="btn-cat-ganadores" class="cat-btn bg-neutral-900 hover:bg-neutral-800 text-neutral-300 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-neutral-800 transition flex items-center gap-2">
+                    <i class="fa-solid fa-weight-scale text-brand-red"></i> GANADORES DE MASA
+                </button>
+            </div>
+        </div>
+
+        <!-- GRID DE PRODUCTOS -->
+        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Se renderiza con JS -->
+        </div>
+
+        <!-- Mensaje de no resultados -->
+        <div id="noResults" class="hidden text-center py-16">
+            <i class="fa-solid fa-box-open text-5xl text-neutral-700 mb-3"></i>
+            <p class="text-neutral-400 font-semibold">No se encontraron suplementos con tu búsqueda.</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-neutral-900 py-8 text-neutral-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+            <div class="flex items-center justify-center gap-2 text-white font-rajdhani text-lg font-bold">
+                <i class="fa-solid fa-shield-halved text-brand-red"></i>
+                <span>CENTRO FIT PRO CÚCUTA</span>
+            </div>
+            <p class="max-w-md mx-auto text-neutral-400">Garantía de productos 100% originales de laboratorio oficial. Envíos directos en Cúcuta, Los Patios y Villa del Rosario.</p>
+            <p class="text-[11px] text-neutral-600">© 2026 CENTRO FIT PRO - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- DRAWER / SLIDE-OVER DEL CARRITO -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div onclick="toggleCartDrawer()" class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity"></div>
+
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-neutral-950 border-l border-neutral-800 shadow-2xl flex flex-col justify-between">
+                
+                <!-- Encabezado Carrito -->
+                <div class="p-5 bg-black border-b border-neutral-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-cart-shopping text-brand-red text-xl"></i>
+                        <h2 class="text-lg font-black font-rajdhani text-white uppercase tracking-wider">TU PEDIDO DE PRODUCTOS</h2>
+                    </div>
+                    <button onclick="toggleCartDrawer()" class="text-neutral-400 hover:text-white p-2">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Lista de Ítems -->
+                <div id="cartItemsList" class="p-5 flex-1 overflow-y-auto space-y-4">
+                    <!-- Dinámico -->
+                </div>
+
+                <!-- Resumen y Enviar a WhatsApp -->
+                <div class="p-5 bg-neutral-900/90 border-t border-neutral-800 space-y-4">
+                    <div class="space-y-1 text-sm">
+                        <div class="flex justify-between text-neutral-400">
+                            <span>Ciudad de Entrega:</span>
+                            <span class="text-white font-semibold">Cúcuta (Express)</span>
+                        </div>
+                        <div class="flex justify-between text-lg font-bold text-white pt-2 border-t border-neutral-800">
+                            <span>TOTAL PEDIDO:</span>
+                            <span id="cartTotalDisplay" class="text-brand-red font-extrabold">$0 COP</span>
+                        </div>
+                    </div>
+
+                    <!-- Datos para Domicilio -->
+                    <div class="space-y-2">
+                        <input type="text" id="custName" placeholder="Nombre completo para envío" class="w-full bg-black border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-red">
+                        <input type="text" id="custAddress" placeholder="Barrio / Dirección en Cúcuta" class="w-full bg-black border border-neutral-800 rounded-xl px-3 py-2 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-brand-red">
+                    </div>
+
+                    <button onclick="sendOrderWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 text-sm uppercase tracking-wide">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Confirmar Pedido por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTÓN FLOTANTE MÓVIL EN LA PARTE INFERIOR -->
+    <div id="floatingCartBtn" class="fixed bottom-4 left-4 right-4 z-30 md:hidden hidden">
+        <button onclick="toggleCartDrawer()" class="w-full bg-brand-red text-white py-3.5 px-5 rounded-2xl font-black font-rajdhani text-base tracking-wider uppercase flex items-center justify-between shadow-[0_0_20px_rgba(255,0,0,0.5)] border border-brand-red">
+            <span class="flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>VER MI PEDIDO (<span id="mobileCount">0</span>)</span>
+            </span>
+            <span id="mobileTotal">$0 COP</span>
+        </button>
+    </div>
+
+    <!-- SCRIPT DE PRODUCTOS Y LÓGICA -->
+    <script>
+        // BASE DE DATOS DE PRODUCTOS OFICIAL CENTRO FIT PRO
+        const products = [
+            // PROTEÍNAS
+            {
+                id: 1,
+                name: "Nutramerican Bi-Pro Classic 2lb",
+                category: "Proteínas",
+                brand: "Nutramerican",
+                spec: "Proteína Aislada Premium, 40g Proteína",
+                flavor: "Vainilla",
+                price: 119000,
+                icon: "fa-bottle-water",
+                bgGradient: "from-neutral-900 via-neutral-950 to-black"
+            },
+            {
+                id: 2,
+                name: "Vitanas Whey Army 2lb",
+                category: "Proteínas",
+                brand: "Vitanas",
+                spec: "Suero de Leche de Alta Calidad, 22g Proteína",
+                flavor: "Camo Edition",
+                price: 157000,
+                icon: "fa-shield-halved",
+                bgGradient: "from-neutral-900 via-neutral-950 to-black"
+            },
+            {
+                id: 3,
+                name: "Smart Whey Pure 2lb",
+                category: "Proteínas",
+                brand: "Smart Nutrition",
+                spec: "Proteína Pura para Músculo, Baja en Calorías",
+                flavor: "Vainilla",
+                price: 190000,
+                icon: "fa-dumbbell",
+                bgGradient: "from-neutral-900 via-neutral-950 to-black"
+            },
+            // CREATINAS
+            {
+                id: 4,
+                name: "Vitana Creatine 50serv",
+                category: "Creatinas",
+                brand: "Vitanas",
+                spec: "Monohidrato Micronizado 100% Puro",
+                flavor: "Unflavored / Sin Sabor",
+                price: 58000,
+                icon: "fa-bolt",
+                bgGradient: "from-neutral-900 via-neutral-950 to-black"
+            },
+            {
+                id: 5,
+                name: "Smart Cre4 Smart 92serv",
+                category: "Creatinas",
+                brand: "Smart Nutrition",
+                spec: "Mezcla de Creatinas Avanzada para Fuerza",
+                flavor: "Sin Sabor",
+                price: 68500,
+                icon: "fa-fire-flame-curved",
+                bgGradient: "from-neutral-900 via-neutral-950 to-black"
+            },
+            {
+                id: 6,
+                name: "Megaplex Creatine Power 2lb",
+                category: "Creatinas",
+                brand: "Megaplex",
+                spec: "Creatina con BCAA & HMB Potenciada",
+                flavor: "Unflavored / Sin Sabor",
+                price: 80000,
+                icon: "fa-atom",
+                bgGradient: "from-neutral-900 via-neutral-950 to-black"
+            },
+            {
+                id: 7,
+                name: "CMN Creatina 100g",
+                category: "Creatinas",
+                brand: "GMN / CMN",
+                spec: "Monohidrato Puro 100g de Rápida Absorción",
+                flavor: "Sabor Original",
+                price: 40300,
+                icon: "fa-cube",
+                bgGradient: "from-neutral-900 via-neutral-950 to-black"
+            },
+            // GANADORES DE MASA
+            {
+                id: 8,
+                name: "CMN Mega Gainer 1lb",
+                category: "Ganadores de Masa",
+                brand: "GMN / CMN",
+                spec: "Ganador Hipercalórico Completo, 52g Proteína",
+                flavor: "Vainilla Gourmet",
+                price: 56000,
+                icon: "fa-weight-scale",
+                bgGradient: "from-neutral-900 via-neutral-950 to-black"
+            }
+        ];
+
+        let currentCategory = 'all';
+        let cart = {};
+
+        // FORMATEADOR DE MONEDA COP
+        function formatCOP(amount) {
+            return '$' + amount.toLocaleString('es-CO') + ' COP';
+        }
+
+        // RENDERIZAR PRODUCTOS
+        function renderProducts(items) {
+            const grid = document.getElementById('productsGrid');
+            const noResults = document.getElementById('noResults');
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            items.forEach(prod => {
+                const qtyInCart = cart[prod.id] ? cart[prod.id].qty : 0;
+
+                const card = document.createElement('div');
+                card.className = "bg-neutral-950 border border-neutral-800 rounded-2xl overflow-hidden flex flex-col justify-between neon-border-hover transition duration-300 group";
+
+                card.innerHTML = `
+                    <div>
+                        <!-- Header / Banner con Icono Estilizado -->
+                        <div class="relative bg-gradient-to-b ${prod.bgGradient} p-6 flex flex-col items-center justify-center border-b border-neutral-900 min-h-[170px]">
+                            <span class="absolute top-3 left-3 bg-brand-red text-white text-[10px] font-black px-2.5 py-1 rounded-md uppercase tracking-wider shadow-[0_0_8px_rgba(255,0,0,0.5)]">
+                                ${prod.category}
+                            </span>
+                            <i class="fa-solid ${prod.icon} text-5xl text-neutral-700 group-hover:text-brand-red group-hover:scale-110 transition duration-300 my-2"></i>
+                            <span class="text-[11px] text-neutral-500 font-semibold uppercase tracking-widest">${prod.brand}</span>
+                        </div>
+
+                        <!-- Detalles del Producto -->
+                        <div class="p-5 space-y-2">
+                            <h3 class="font-black text-base text-white group-hover:text-brand-red transition line-clamp-1">${prod.name}</h3>
+                            <p class="text-xs text-neutral-400 font-medium leading-relaxed min-h-[36px]">${prod.spec}</p>
+                            
+                            <div class="inline-block bg-neutral-900 border border-neutral-800 text-[10px] text-neutral-300 px-2 py-0.5 rounded font-medium">
+                                <i class="fa-solid fa-tag text-brand-red mr-1"></i> ${prod.flavor}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Precio y Acciones -->
+                    <div class="p-5 pt-0 space-y-3">
+                        <div class="flex items-baseline justify-between border-t border-neutral-900 pt-3">
+                            <span class="text-[10px] text-neutral-500 font-bold uppercase tracking-wider">Precio Final:</span>
+                            <span class="text-xl font-black text-white font-rajdhani">${formatCOP(prod.price)}</span>
+                        </div>
+
+                        <!-- Botones de compra / contador -->
+                        <div id="btn-container-${prod.id}">
+                            ${qtyInCart > 0 ? `
+                                <div class="flex items-center justify-between bg-neutral-900 border border-brand-red rounded-xl p-1">
+                                    <button onclick="updateQty(${prod.id}, -1)" class="w-8 h-8 bg-black hover:bg-neutral-800 text-brand-red font-bold rounded-lg flex items-center justify-center transition">
+                                        <i class="fa-solid fa-minus text-xs"></i>
+                                    </button>
+                                    <span class="font-black text-sm text-white">${qtyInCart} unid.</span>
+                                    <button onclick="updateQty(${prod.id}, 1)" class="w-8 h-8 bg-brand-red text-white font-bold rounded-lg flex items-center justify-center transition">
+                                        <i class="fa-solid fa-plus text-xs"></i>
+                                    </button>
+                                </div>
+                            ` : `
+                                <button onclick="addToCart(${prod.id})" class="w-full bg-neutral-900 hover:bg-brand-red text-white hover:text-white border border-neutral-700 hover:border-brand-red font-bold py-2.5 rounded-xl transition text-xs flex items-center justify-center gap-2 uppercase tracking-wide">
+                                    <i class="fa-solid fa-cart-plus text-sm"></i> Agregar al Pedido
+                                </button>
+                            `}
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // AGREGAR AL CARRITO
+        function addToCart(productId) {
+            const prod = products.find(p => p.id === productId);
+            if (!cart[productId]) {
+                cart[productId] = { ...prod, qty: 1 };
+            }
+            updateCartState();
+        }
+
+        // MODIFICAR CANTIDADES
+        function updateQty(productId, delta) {
+            if (cart[productId]) {
+                cart[productId].qty += delta;
+                if (cart[productId].qty <= 0) {
+                    delete cart[productId];
+                }
+            }
+            updateCartState();
+        }
+
+        // ACTUALIZAR ESTADO GENERAL Y VISTAS
+        function updateCartState() {
+            let totalCount = 0;
+            let totalPrice = 0;
+
+            for (const id in cart) {
+                totalCount += cart[id].qty;
+                totalPrice += cart[id].qty * cart[id].price;
+            }
+
+            // Badges
+            document.getElementById('cartCountBadge').innerText = totalCount;
+            document.getElementById('mobileCount').innerText = totalCount;
+            document.getElementById('mobileTotal').innerText = formatCOP(totalPrice);
+            document.getElementById('cartTotalDisplay').innerText = formatCOP(totalPrice);
+
+            // Botón flotante móvil
+            const floatBtn = document.getElementById('floatingCartBtn');
+            if (totalCount > 0) {
+                floatBtn.classList.remove('hidden');
+            } else {
+                floatBtn.classList.add('hidden');
+            }
+
+            // Volver a renderizar lista de productos actual para refrescar botones
+            filterProducts();
+            renderCartDrawerItems();
+        }
+
+        // RENDERIZAR LISTA DENTRO DEL CARRITO
+        function renderCartDrawerItems() {
+            const container = document.getElementById('cartItemsList');
+            container.innerHTML = '';
+
+            const keys = Object.keys(cart);
+            if (keys.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-neutral-500 space-y-2">
+                        <i class="fa-solid fa-basket-shopping text-4xl"></i>
+                        <p class="text-xs font-semibold">Tu lista de pedido está vacía.</p>
+                        <p class="text-[11px] text-neutral-600">Selecciona algunos suplementos arriba para comenzar.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            keys.forEach(id => {
+                const item = cart[id];
+                const div = document.createElement('div');
+                div.className = "bg-neutral-900 border border-neutral-800 rounded-xl p-3 flex justify-between items-center gap-3";
+                div.innerHTML = `
+                    <div class="flex-1">
+                        <h4 class="text-xs font-bold text-white line-clamp-1">${item.name}</h4>
+                        <span class="text-[11px] text-brand-red font-rajdhani font-bold">${formatCOP(item.price)} c/u</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black border border-neutral-800 rounded-lg p-1">
+                        <button onclick="updateQty(${item.id}, -1)" class="w-6 h-6 text-neutral-400 hover:text-white flex items-center justify-center">
+                            <i class="fa-solid fa-minus text-[10px]"></i>
+                        </button>
+                        <span class="text-xs font-bold text-white px-1">${item.qty}</span>
+                        <button onclick="updateQty(${item.id}, 1)" class="w-6 h-6 text-brand-red flex items-center justify-center">
+                            <i class="fa-solid fa-plus text-[10px]"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // FILTRAR POR CATEGORÍA
+        function setCategory(cat) {
+            currentCategory = cat;
+            
+            // Estilos de botones
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn bg-neutral-900 hover:bg-neutral-800 text-neutral-300 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-neutral-800 transition flex items-center gap-2";
+            });
+
+            const activeBtnMap = {
+                'all': 'btn-cat-all',
+                'Proteínas': 'btn-cat-proteinas',
+                'Creatinas': 'btn-cat-creatinas',
+                'Ganadores de Masa': 'btn-cat-ganadores'
+            };
+
+            const activeBtn = document.getElementById(activeBtnMap[cat]);
+            if (activeBtn) {
+                activeBtn.className = "cat-btn bg-brand-red text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-brand-red transition flex items-center gap-2 shadow-[0_0_10px_rgba(255,0,0,0.3)]";
+            }
+
+            filterProducts();
+        }
+
+        // BUSCADOR EN TIEMPO REAL Y COMBINACIÓN DE FILTROS
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+
+            const filtered = products.filter(p => {
+                const matchCategory = (currentCategory === 'all') || (p.category === currentCategory);
+                const matchQuery = p.name.toLowerCase().includes(query) || 
+                                   p.brand.toLowerCase().includes(query) || 
+                                   p.spec.toLowerCase().includes(query);
+                return matchCategory && matchQuery;
+            });
+
+            renderProducts(filtered);
+        }
+
+        // MOSTRAR / OCULTAR CARRITO SLIDE-OVER
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cartDrawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        // ENVIAR PEDIDO POR WHATSAPP
+        function sendOrderWhatsApp() {
+            const keys = Object.keys(cart);
+            if (keys.length === 0) {
+                alert("Por favor agrega al menos un producto a tu pedido antes de enviar.");
+                return;
+            }
+
+            const name = document.getElementById('custName').value.trim() || 'Cliente';
+            const address = document.getElementById('custAddress').value.trim() || 'Cúcuta (Por confirmar)';
+
+            let message = `🏋️‍♂️ *NUEVO PEDIDO - CENTRO FIT PRO CÚCUTA* 🏋️‍♂️\n`;
+            message += `-------------------------------------------\n`;
+            message += `👤 *Cliente:* ${name}\n`;
+            message += `📍 *Ubicación/Barrio:* ${address}\n`;
+            message += `🚚 *Entrega:* Cúcuta y Área Metropolitana\n`;
+            message += `-------------------------------------------\n\n`;
+            message += `📦 *DETALLE DE SUPLEMENTOS:* \n`;
+
+            let grandTotal = 0;
+            keys.forEach((id, index) => {
+                const item = cart[id];
+                const subtotal = item.qty * item.price;
+                grandTotal += subtotal;
+                message += `${index + 1}. *${item.name}*\n`;
+                message += `   └ Cantidad: ${item.qty} unid. | Subtotal: $${subtotal.toLocaleString('es-CO')} COP\n`;
+            });
+
+            message += `\n-------------------------------------------\n`;
+            message += `💰 *TOTAL A PAGAR:* $${grandTotal.toLocaleString('es-CO')} COP\n`;
+            message += `-------------------------------------------\n`;
+            message += `¡Quedo atento a los datos de transferencia / pago contraentrega!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            // Reemplazar con el número oficial de atención de la tienda
+            const phoneNumber = "573212277162"; 
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // INICIALIZACIÓN
+        window.onload = function() {
+            filterProducts();
+            renderCartDrawerItems();
+        }
+    </script>
+</body>
+</html>
