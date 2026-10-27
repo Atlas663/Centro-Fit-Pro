@@ -24,6 +24,28 @@
     </script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        function filtrarProductos(categoria) {
+            const productos = document.querySelectorAll('.producto-item');
+            const botones = document.querySelectorAll('.filtro-btn');
+            
+            botones.forEach(btn => {
+                btn.classList.remove('bg-red-600', 'text-white', 'shadow-[0_0_15px_rgba(255,0,0,0.5)]');
+                btn.classList.add('bg-gray-900', 'text-gray-400', 'border-gray-800');
+            });
+            
+            event.target.classList.remove('bg-gray-900', 'text-gray-400', 'border-gray-800');
+            event.target.classList.add('bg-red-600', 'text-white', 'shadow-[0_0_15px_rgba(255,0,0,0.5)]');
+
+            productos.forEach(prod => {
+                if (categoria === 'todos' || prod.dataset.category === categoria) {
+                    prod.style.display = 'flex';
+                } else {
+                    prod.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </head>
 <body class="bg-black text-gray-100 min-h-screen font-sans flex flex-col justify-between">
 
@@ -46,7 +68,7 @@
     </header>
 
     <!-- Banner Principal -->
-    <section class="relative bg-gradient-to-b from-red-950/30 to-black py-12 px-4 border-b border-red-900/30 text-center">
+    <section class="relative bg-gradient-to-b from-red-950/30 to-black py-10 px-4 border-b border-red-900/30 text-center">
         <div class="max-w-3xl mx-auto">
             <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white mb-3">
                 Suplementación de <span class="text-red-500 underline decoration-red-600">Alto Rendimiento</span>
@@ -58,11 +80,21 @@
     </section>
 
     <!-- Catálogo de Productos -->
-    <main class="max-w-6xl mx-auto px-4 py-12 flex-grow w-full">
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+        
+        <!-- Botones de Filtro -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10">
+            <button onclick="filtrarProductos('todos')" class="filtro-btn bg-red-600 text-white font-semibold px-4 py-2 rounded-xl text-sm shadow-[0_0_15px_rgba(255,0,0,0.5)] transition-all">Todos</button>
+            <button onclick="filtrarProductos('creatina')" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Creatinas</button>
+            <button onclick="filtrarProductos('proteina')" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Proteínas</button>
+            <button onclick="filtrarProductos('preentreno')" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Pre-Entrenos</button>
+            <button onclick="filtrarProductos('aminoacidos')" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Aminoácidos</button>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Producto 1 -->
-            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between">
+            <!-- Producto 1: Creatina -->
+            <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="creatina">
                 <div>
                     <div class="h-64 overflow-hidden bg-black flex items-center justify-center p-4 border-b border-gray-900">
                         <img src="https://http2.mlstatic.com/D_NQ_NP_2X_853693-MCO89452251550_082025-F.webp" alt="Creatina Crea Smart" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
@@ -84,8 +116,8 @@
                 </div>
             </div>
 
-            <!-- Producto 2 -->
-            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between">
+            <!-- Producto 2: Creatina -->
+            <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="creatina">
                 <div>
                     <div class="h-64 overflow-hidden bg-black flex items-center justify-center p-4 border-b border-gray-900">
                         <img src="https://vindo.com.co/cdn/shop/files/creatina-time-monohidratada-micronizada-en-polvo-vitaminas-150gr_1197x1197.jpg?v=1726188949" alt="Creatina Time Micronizada" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
@@ -107,8 +139,8 @@
                 </div>
             </div>
 
-            <!-- Producto 3 -->
-            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between">
+            <!-- Producto 3: Proteína -->
+            <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="proteina">
                 <div>
                     <div class="h-64 overflow-hidden bg-black flex items-center justify-center p-4 border-b border-gray-900">
                         <img src="https://marketplace.addi.com/_next/image?url=https%3A%2F%2Fmktaddi.vteximg.com.br%2Farquivos%2Fids%2F86801199%2F9b5b25d1-88e9-4b03-9072-bbc75e9ac171-D_Q_NP_2X_759431-MCO101684151781_122025-B.jpg%3Fv%3D639134284148070000&w=1920&q=75" alt="Suplemento Deportivo Pro" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
@@ -130,8 +162,8 @@
                 </div>
             </div>
 
-            <!-- Producto 4 -->
-            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between">
+            <!-- Producto 4: Proteína -->
+            <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="proteina">
                 <div>
                     <div class="h-64 overflow-hidden bg-black flex items-center justify-center p-4 border-b border-gray-900">
                         <img src="https://media.falabella.com/falabellaCO/158844548_01/w=1200,h=1200,fit=pad" alt="Proteína ISO Whey" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
@@ -153,8 +185,8 @@
                 </div>
             </div>
 
-            <!-- Producto 5 -->
-            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between">
+            <!-- Producto 5: Pre-Entreno -->
+            <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="preentreno">
                 <div>
                     <div class="h-64 overflow-hidden bg-black flex items-center justify-center p-4 border-b border-gray-900">
                         <img src="https://http2.mlstatic.com/D_NQ_NP_2X_607644-MCO117728012589_092026-F.webp" alt="Pre Entreno Ultra Energy" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
@@ -176,8 +208,8 @@
                 </div>
             </div>
 
-            <!-- Producto 6 -->
-            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between">
+            <!-- Producto 6: Aminoácidos -->
+            <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="aminoacidos">
                 <div>
                     <div class="h-64 overflow-hidden bg-black flex items-center justify-center p-4 border-b border-gray-900">
                         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR4ySjqHI3Fk_zWjZCqpqumYH0wOv0mnvlMOcLVWpK9apibNX1cs1vyUThbqoHdAyVywAS4QQP4UCXQd_6iN3Xyr0d5akc5WFP2SI3WOgfq-nWQqH-gF7Qx2p8" alt="Aminoácidos BCAA" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
