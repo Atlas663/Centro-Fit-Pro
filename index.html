@@ -25,7 +25,7 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-        function filtrarProductos(categoria) {
+        function filtrarProductos(categoria, btnElement) {
             const productos = document.querySelectorAll('.producto-item');
             const botones = document.querySelectorAll('.filtro-btn');
             
@@ -34,8 +34,8 @@
                 btn.classList.add('bg-gray-900', 'text-gray-400', 'border-gray-800');
             });
             
-            event.target.classList.remove('bg-gray-900', 'text-gray-400', 'border-gray-800');
-            event.target.classList.add('bg-red-600', 'text-white', 'shadow-[0_0_15px_rgba(255,0,0,0.5)]');
+            btnElement.classList.remove('bg-gray-900', 'text-gray-400', 'border-gray-800');
+            btnElement.classList.add('bg-red-600', 'text-white', 'shadow-[0_0_15px_rgba(255,0,0,0.5)]');
 
             productos.forEach(prod => {
                 if (categoria === 'todos' || prod.dataset.category === categoria) {
@@ -72,7 +72,7 @@
         </div>
     </header>
 
-    <!-- Banner Principal con Fondo de Gimnasio -->
+    <!-- Banner Principal con Fondo Deportivo -->
     <section class="relative bg-gradient-to-r from-black via-red-950/60 to-black py-20 px-4 border-b border-red-900/40 text-center overflow-hidden">
         <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop');"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
@@ -94,23 +94,23 @@
         
         <!-- Botones de Filtro -->
         <div class="flex flex-wrap justify-center gap-2 mb-10">
-            <button onclick="filtrarProductos('todos')" class="filtro-btn bg-red-600 text-white font-semibold px-4 py-2 rounded-xl text-sm shadow-[0_0_15px_rgba(255,0,0,0.5)] transition-all">Todos</button>
-            <button onclick="filtrarProductos('creatina')" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Creatinas</button>
-            <button onclick="filtrarProductos('proteina')" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Proteínas</button>
-            <button onclick="filtrarProductos('ganador')" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Ganadores</button>
+            <button onclick="filtrarProductos('todos', this)" class="filtro-btn bg-red-600 text-white font-semibold px-4 py-2 rounded-xl text-sm shadow-[0_0_15px_rgba(255,0,0,0.5)] transition-all">Todos</button>
+            <button onclick="filtrarProductos('creatina', this)" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Creatinas</button>
+            <button onclick="filtrarProductos('proteina', this)" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Proteínas</button>
+            <button onclick="filtrarProductos('ganador', this)" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Ganadores</button>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Producto 1: Crea4Smart 92 servicios (Imagen PNG Transparente) -->
+            <!-- Producto 1: Crea4Smart -->
             <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="creatina">
                 <div>
-                    <div class="h-64 bg-gradient-to-b from-black via-gray-950 to-gray-950 flex items-center justify-center p-4 border-b border-gray-900">
-                        <img src="D_NQ_NP_2X_853693-MCO89452251550_082025-F-removebg-preview.png" alt="Crea4Smart 92 servicios" class="max-h-full object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_10px_20px_rgba(255,0,0,0.25)]">
+                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center p-4 shadow-md">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_853693-MCO89452251550_082025-F.webp" alt="Crea4Smart" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-5">
-                        <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/50 px-2.5 py-1 rounded border border-red-900/30">Creatina • 92 Servicios</span>
-                        <h3 class="text-xl font-bold text-white mt-3">Crea4Smart 92 Servicios</h3>
+                    <div class="p-5 pt-2">
+                        <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/50 px-2.5 py-1 rounded border border-red-900/30">Creatina</span>
+                        <h3 class="text-xl font-bold text-white mt-3">Crea4Smart</h3>
                         <p class="text-gray-400 text-sm mt-2">Aumenta la fuerza, potencia muscular y acelera la recuperación en tus entrenamientos intensos.</p>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                         <span class="text-xs text-gray-500 block">Precio (Incluye Domicilio)</span>
                         <span class="text-2xl font-black text-white">$75.500 <span class="text-xs text-red-500 font-normal">COP</span></span>
                     </div>
-                    <a href="https://wa.me/573212277162?text=Hola%20CENTRO%20FIT%20PRO,%20quiero%20pedir%20la%20Crea4Smart%2092%20servicios%20(Con%20domicilio)" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-[0_0_10px_rgba(255,0,0,0.5)] flex items-center gap-2 transition-all">
+                    <a href="https://wa.me/573212277162?text=Hola%20CENTRO%20FIT%20PRO,%20quiero%20pedir%20la%20Crea4Smart%20(Con%20domicilio)" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-[0_0_10px_rgba(255,0,0,0.5)] flex items-center gap-2 transition-all">
                         <i class="fa-brands fa-whatsapp text-lg"></i> Pedir
                     </a>
                 </div>
@@ -128,10 +128,10 @@
             <!-- Producto 2: Creatina Time -->
             <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="creatina">
                 <div>
-                    <div class="h-64 bg-black flex items-center justify-center p-4 border-b border-gray-900/80">
+                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center p-4 shadow-md">
                         <img src="https://vindo.com.co/cdn/shop/files/creatina-time-monohidratada-micronizada-en-polvo-vitaminas-150gr_1197x1197.jpg?v=1726188949" alt="Creatina Time" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-5">
+                    <div class="p-5 pt-2">
                         <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/50 px-2.5 py-1 rounded border border-red-900/30">Creatina</span>
                         <h3 class="text-xl font-bold text-white mt-3">Creatina Time</h3>
                         <p class="text-gray-400 text-sm mt-2">Creatina de rápida absorción enriquecida con vitaminas para maximizar el rendimiento muscular.</p>
@@ -151,10 +151,10 @@
             <!-- Producto 3: Creatina GMN 100GR -->
             <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="creatina">
                 <div>
-                    <div class="h-64 bg-black flex items-center justify-center p-4 border-b border-gray-900/80">
+                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center p-4 shadow-md">
                         <img src="https://http2.mlstatic.com/D_NQ_NP_2X_664410-MCO116323800646_092026-F.webp" alt="Creatina GMN 100GR" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-5">
+                    <div class="p-5 pt-2">
                         <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/50 px-2.5 py-1 rounded border border-red-900/30">Creatina</span>
                         <h3 class="text-xl font-bold text-white mt-3">Creatina GMN 100GR</h3>
                         <p class="text-gray-400 text-sm mt-2">Presentación práctica de 100g ideal para iniciar ciclos de fuerza y máxima energía.</p>
@@ -174,10 +174,10 @@
             <!-- Producto 4: Whey Pure 1LB -->
             <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="proteina">
                 <div>
-                    <div class="h-64 bg-black flex items-center justify-center p-4 border-b border-gray-900/80">
+                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center p-4 shadow-md">
                         <img src="https://media.falabella.com/falabellaCO/158844548_01/w=1200,h=1200,fit=pad" alt="Whey Pure 1LB" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-5">
+                    <div class="p-5 pt-2">
                         <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/50 px-2.5 py-1 rounded border border-red-900/30">Proteína</span>
                         <h3 class="text-xl font-bold text-white mt-3">Whey Pure 1LB</h3>
                         <p class="text-gray-400 text-sm mt-2">Proteína de alta calidad para un óptimo desarrollo y recuperación de la masa muscular.</p>
@@ -197,10 +197,10 @@
             <!-- Producto 5: Whey Army 2 LB -->
             <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="proteina">
                 <div>
-                    <div class="h-64 bg-black flex items-center justify-center p-4 border-b border-gray-900/80">
+                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center p-4 shadow-md">
                         <img src="https://http2.mlstatic.com/D_NQ_NP_2X_607644-MCO117728012589_092026-F.webp" alt="Whey Army 2 LB" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-5">
+                    <div class="p-5 pt-2">
                         <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/50 px-2.5 py-1 rounded border border-red-900/30">Proteína</span>
                         <h3 class="text-xl font-bold text-white mt-3">Whey Army 2 LB</h3>
                         <p class="text-gray-400 text-sm mt-2">Presentación de 2 libras con excelente perfil de aminoácidos para resultados superiores.</p>
@@ -220,10 +220,10 @@
             <!-- Producto 6: Mega Gainer 1 LB -->
             <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="ganador">
                 <div>
-                    <div class="h-64 bg-black flex items-center justify-center p-4 border-b border-gray-900/80">
+                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center p-4 shadow-md">
                         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR4ySjqHI3Fk_zWjZCqpqumYH0wOv0mnvlMOcLVWpK9apibNX1cs1vyUThbqoHdAyVywAS4QQP4UCXQd_6iN3Xyr0d5akc5WFP2SI3WOgfq-nWQqH-gF7Qx2p8" alt="Mega Gainer 1 LB" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-5">
+                    <div class="p-5 pt-2">
                         <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/50 px-2.5 py-1 rounded border border-red-900/30">Ganador de Peso</span>
                         <h3 class="text-xl font-bold text-white mt-3">Mega Gainer 1 LB</h3>
                         <p class="text-gray-400 text-sm mt-2">Formulado para ayudarte a subir de peso, masa muscular y volumen de forma efectiva.</p>
