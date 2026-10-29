@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
-    <meta name="google-site-verification" content="3_HWQm8i7WWDhZMb5R30aYSBnKvvx4UiWs8b6IIkPGs" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CENTRO FIT PRO | Catálogo Digital Cúcuta</title>
@@ -179,9 +178,63 @@
         </div>
     </section>
 
+    <!-- SECCIÓN: Tabla Comparativa Rápida de Proteínas -->
+    <section class="max-w-6xl mx-auto px-4 mb-12 w-full">
+        <div class="bg-gray-950 border border-red-900/40 rounded-3xl p-6 sm:p-8 shadow-[0_0_20px_rgba(255,0,0,0.15)]">
+            <div class="text-center mb-6">
+                <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/70 border border-red-900/50 px-3 py-1 rounded-full">
+                    <i class="fa-solid fa-scale-balanced mr-1"></i> Guía de Compra Rápida
+                </span>
+                <h3 class="text-xl sm:text-2xl font-black text-white uppercase mt-3">Compara Nuestras Proteínas</h3>
+                <p class="text-gray-400 text-xs sm:text-sm mt-1">Elige la opción que mejor se adapte a tus metas y presupuesto.</p>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs sm:text-sm border-collapse">
+                    <thead>
+                        <tr class="border-b border-red-900/40 text-red-500 uppercase">
+                            <th class="p-3">Característica</th>
+                            <th class="p-3">Whey Pure 1LB</th>
+                            <th class="p-3">Whey Army 2LB <span class="bg-red-600 text-white text-[10px] px-2 py-0.5 rounded-full ml-1 font-normal lowercase">Top Ventas</span></th>
+                            <th class="p-3">Mega Gainer 1LB</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-900 text-gray-300">
+                        <tr>
+                            <td class="p-3 font-bold text-white">Objetivo Principal</td>
+                            <td class="p-3">Tonificación / Definición</td>
+                            <td class="p-3">Masa Muscular Limpia</td>
+                            <td class="p-3">Ganancia de Peso y Volumen</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-white">Presentación</td>
+                            <td class="p-3">1 Libra (454g)</td>
+                            <td class="p-3">2 Libras (907g)</td>
+                            <td class="p-3">1 Libra (454g)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-white">Precio (c/ Domicilio)</td>
+                            <td class="p-3 font-bold text-white">$106.000 COP</td>
+                            <td class="p-3 font-bold text-red-500">$164.000 COP</td>
+                            <td class="p-3 font-bold text-white">$63.000 COP</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
     <!-- Catálogo de Productos -->
     <main id="catalogo-productos" class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
         
+        <!-- BARRA DE BÚSQUEDA DINÁMICA -->
+        <div class="max-w-md mx-auto mb-6">
+            <div class="relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                <input type="text" id="buscador-productos" onkeyup="buscarProductos()" placeholder="Buscar producto (ej: Creatina, Whey, GMN)..." class="w-full bg-gray-950 border border-gray-800 focus:border-red-600 rounded-full pl-11 pr-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none shadow-md transition-all">
+            </div>
+        </div>
+
         <!-- Botones de Filtro -->
         <div class="flex flex-wrap justify-center gap-2 mb-10">
             <button onclick="filtrarProductos('todos', this)" class="filtro-btn bg-red-600 text-white font-semibold px-4 py-2 rounded-xl text-sm shadow-[0_0_15px_rgba(255,0,0,0.5)] transition-all">Todos</button>
@@ -193,9 +246,10 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <!-- Producto 1: Crea4Smart -->
-            <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="creatina">
+            <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between relative" data-category="creatina">
                 <div>
-                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 shadow-md">
+                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 shadow-md relative">
+                        <span class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow-md tracking-wider">Favorito</span>
                         <img src="https://http2.mlstatic.com/D_NQ_NP_2X_853693-MCO89452251550_082025-F.webp" alt="Crea4Smart" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-5 pt-2">
@@ -332,10 +386,11 @@
                 </div>
             </div>
 
-            <!-- Producto 5: Whey Army 2 LB -->
-            <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="proteina">
+            <!-- Producto 5: Whey Army 2 LB (Etiqueta Bestseller / Más Vendido) -->
+            <div class="producto-item bg-gray-950 border border-red-600/80 rounded-2xl overflow-hidden shadow-[0_0_20px_rgba(255,0,0,0.3)] flex flex-col justify-between relative" data-category="proteina">
                 <div>
-                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 shadow-md">
+                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 shadow-md relative">
+                        <span class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow-md tracking-wider animate-pulse">🔥 Más Vendido</span>
                         <img src="https://http2.mlstatic.com/D_NQ_NP_2X_607644-MCO117728012589_092026-F.webp" alt="Whey Army 2 LB" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-5 pt-2">
@@ -404,6 +459,48 @@
 
         </div>
     </main>
+
+    <!-- SECCIÓN: Preguntas Frecuentes (FAQ Interactivo) -->
+    <section class="max-w-4xl mx-auto px-4 my-12 w-full">
+        <div class="text-center mb-8">
+            <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/70 border border-red-900/50 px-3 py-1 rounded-full">
+                <i class="fa-solid fa-circle-question mr-1"></i> Resuelve tus dudas
+            </span>
+            <h3 class="text-2xl font-black text-white uppercase mt-3">Preguntas Frecuentes</h3>
+        </div>
+
+        <div class="flex flex-col gap-3">
+            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden">
+                <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-white text-sm sm:text-base flex justify-between items-center hover:text-red-500 transition-colors">
+                    ¿El precio de los productos incluye envío en Cúcuta?
+                    <i class="fa-solid fa-chevron-down text-red-500 transition-transform"></i>
+                </button>
+                <div class="faq-respuesta hidden p-4 pt-0 text-gray-400 text-xs sm:text-sm border-t border-gray-900">
+                    ¡Sí! Todos los precios listados en nuestro catálogo incluyen el domicilio directo hasta tu casa u oficina en la ciudad de Cúcuta.
+                </div>
+            </div>
+
+            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden">
+                <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-white text-sm sm:text-base flex justify-between items-center hover:text-red-500 transition-colors">
+                    ¿Cuáles son las formas de pago aceptadas?
+                    <i class="fa-solid fa-chevron-down text-red-500 transition-transform"></i>
+                </button>
+                <div class="faq-respuesta hidden p-4 pt-0 text-gray-400 text-xs sm:text-sm border-t border-gray-900">
+                    Manejamos pago en efectivo contra entrega (pagas cuando recibes tu producto) o transferencia electrónica directa a nuestra cuenta Bancolombia.
+                </div>
+            </div>
+
+            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden">
+                <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-white text-sm sm:text-base flex justify-between items-center hover:text-red-500 transition-colors">
+                    ¿Son productos 100% originales?
+                    <i class="fa-solid fa-chevron-down text-red-500 transition-transform"></i>
+                </button>
+                <div class="faq-respuesta hidden p-4 pt-0 text-gray-400 text-xs sm:text-sm border-t border-gray-900">
+                    Absolutamente. En CENTRO FIT PRO solo distribuimos marcas oficiales y certificadas con registro INVIMA para garantizar tu salud y rendimiento deportivo.
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Sección de Métodos de Pago y Confianza -->
     <section class="max-w-6xl mx-auto px-4 my-12 w-full">
@@ -521,7 +618,7 @@
             subtotal: 0
         };
 
-        // Lógica Calculadora Creatina (Gramos y Scoops basados en cuchara de 5g)
+        // Lógica Calculadora Creatina
         function calcularCreatina() {
             const peso = parseFloat(document.getElementById('peso-creatina').value);
             const nivel = document.getElementById('nivel-creatina').value;
@@ -544,7 +641,7 @@
             `;
         }
 
-        // Lógica Calculadora Proteína en Polvo con enfoque según objetivo
+        // Lógica Calculadora Proteína en Polvo
         function calcularProteina() {
             const peso = parseFloat(document.getElementById('peso-proteina').value);
             const objetivo = document.getElementById('objetivo-proteina').value;
@@ -555,7 +652,6 @@
                 return;
             }
 
-            // Si busca volumen, se sugiere una porción ligeramente mayor o un scoop completo fuerte; si es tonificación, una porción estándar.
             let scoops = objetivo === 'volumen' ? '1.5 scoops' : '1 scoop';
             let gramosPolvo = objetivo === 'volumen' ? '45 gramos de polvo' : '30 gramos de polvo';
 
@@ -564,6 +660,33 @@
                 <div class="text-xl sm:text-2xl font-black text-red-500 my-0.5">${scoops} (${gramosPolvo})</div>
                 <p class="text-gray-300 text-[11px]">Cantidad ideal por batido para tu objetivo físico.</p>
             `;
+        }
+
+        // Función de Búsqueda Dinámica
+        function buscarProductos() {
+            const query = document.getElementById('buscador-productos').value.toLowerCase();
+            const productos = document.querySelectorAll('.producto-item');
+
+            productos.forEach(prod => {
+                const nombre = prod.querySelector('h3').textContent.toLowerCase();
+                const descripcion = prod.querySelector('p').textContent.toLowerCase();
+                const categoria = prod.querySelector('span').textContent.toLowerCase();
+
+                if (nombre.includes(query) || descripcion.includes(query) || categoria.includes(query)) {
+                    prod.style.display = 'flex';
+                } else {
+                    prod.style.display = 'none';
+                }
+            });
+        }
+
+        // Acordeón Preguntas Frecuentes
+        function toggleFaq(btn) {
+            const respuesta = btn.nextElementSibling;
+            const icono = btn.querySelector('i');
+            
+            respuesta.classList.toggle('hidden');
+            icono.classList.toggle('rotate-180');
         }
 
         function filtrarProductos(categoria, btnElement) {
@@ -607,7 +730,6 @@
             document.getElementById('drawer-prod-subtotal').textContent = formatearCOP(subtotal);
             document.getElementById('drawer-prod-total').textContent = formatearCOP(subtotal);
 
-            // Mostrar el drawer deslizable
             const overlay = document.getElementById('drawer-overlay');
             const drawer = document.getElementById('drawer-pedido');
 
