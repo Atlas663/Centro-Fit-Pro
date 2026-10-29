@@ -159,10 +159,10 @@
                             <input type="number" id="peso-proteina" placeholder="Ej: 65" min="30" max="200" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none font-bold">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Objetivo / Tipo de Toma</label>
+                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Objetivo / Meta Corporal</label>
                             <select id="objetivo-proteina" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none font-bold cursor-pointer">
-                                <option value="post">Post-Entreno Estándar (1 Scoop)</option>
-                                <option value="extra">Alta Demanda / Doble Refuerzo (1.5 Scoops)</option>
+                                <option value="tonificacion">Mantenimiento / Tonificación</option>
+                                <option value="volumen">Aumento de Masa Muscular (Volumen)</option>
                             </select>
                         </div>
                         <button type="button" onclick="calcularProteina()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-[0_0_10px_rgba(255,0,0,0.4)] transition-all text-sm">
@@ -534,8 +534,6 @@
             let gramos = peso * 0.1;
             if (nivel === 'intenso') gramos *= 1.15;
             let gramosFinal = parseFloat(gramos.toFixed(1));
-            
-            // Suponiendo scoop estándar de 5g
             let scoops = (gramosFinal / 5).toFixed(1);
 
             contenedor.innerHTML = `
@@ -545,7 +543,7 @@
             `;
         }
 
-        // Lógica Calculadora Proteína en Polvo (Gramos de producto y Scoops del tarro)
+        // Lógica Calculadora Proteína en Polvo con enfoque según objetivo
         function calcularProteina() {
             const peso = parseFloat(document.getElementById('peso-proteina').value);
             const objetivo = document.getElementById('objetivo-proteina').value;
@@ -556,15 +554,14 @@
                 return;
             }
 
-            // Un scoop estándar de proteína aporta aprox 24g de proteína neta (el dosificador completo pesa unos 30g de producto en polvo).
-            // Si el objetivo es post-entreno estándar, se recomienda 1 scoop (aprox 30g de polvo). Si es extra, 1.5 scoops (aprox 45g de polvo).
-            let scoops = objetivo === 'extra' ? '1.5 scoops' : '1 scoop';
-            let gramosPolvo = objetivo === 'extra' ? '45 gramos de polvo' : '30 gramos de polvo';
+            // Si busca volumen, se sugiere una porción ligeramente mayor o un scoop completo fuerte; si es tonificación, una porción estándar.
+            let scoops = objetivo === 'volumen' ? '1.5 scoops' : '1 scoop';
+            let gramosPolvo = objetivo === 'volumen' ? '45 gramos de polvo' : '30 gramos de polvo';
 
             contenedor.innerHTML = `
                 <span class="text-xs text-gray-400 uppercase font-bold">Porción de Batido Sugerida:</span>
                 <div class="text-xl sm:text-2xl font-black text-red-500 my-0.5">${scoops} (${gramosPolvo})</div>
-                <p class="text-gray-300 text-[11px]">Cantidad ideal por batido para mezclar con agua o leche.</p>
+                <p class="text-gray-300 text-[11px]">Cantidad ideal por batido para tu objetivo físico.</p>
             `;
         }
 
