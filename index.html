@@ -51,17 +51,20 @@
         </div>
     </header>
 
-    <!-- Banner Principal (Imagen continua con hombre izq y mujer der, alta iluminación y estructura mantenida) -->
-    <section class="relative bg-black py-20 px-4 border-b border-red-600/50 text-center overflow-hidden">
-        <!-- Imagen continua de fondo con alta iluminación y brillo -->
-        <div class="absolute inset-0 opacity-80 filter brightness-125 contrast-110 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1920&auto=format&fit=crop');"></div>
+    <!-- Banner Principal (Hombre izquierda y Mujer derecha continuos, alta iluminación) -->
+    <section class="relative bg-black py-20 px-4 border-b border-red-600/50 text-center overflow-hidden flex">
+        <!-- Mitad Izquierda: Hombre alzando peso (Alta iluminación) -->
+        <div class="absolute inset-y-0 left-0 w-1/2 opacity-80 filter brightness-125 contrast-110 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1000&auto=format&fit=crop');"></div>
         
-        <!-- Capa de oscurecimiento suave para legibilidad del texto -->
-        <div class="absolute inset-0 bg-black/60"></div>
+        <!-- Mitad Derecha: Mujer alzando peso (Alta iluminación) -->
+        <div class="absolute inset-y-0 right-0 w-1/2 opacity-80 filter brightness-125 contrast-110 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1000&auto=format&fit=crop');"></div>
+
+        <!-- Capa de oscurecimiento suave uniforme para fundir ambas imágenes y resaltar el texto -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50"></div>
 
         <!-- Contenido Central -->
-        <div class="relative max-w-3xl mx-auto z-10">
+        <div class="relative max-w-3xl mx-auto z-10 w-full">
             <span class="text-xs font-bold uppercase tracking-widest text-white bg-red-600 border border-red-500 px-3.5 py-1.5 rounded-full mb-4 inline-block shadow-[0_0_20px_rgba(255,0,0,0.8)]">
                 <i class="fa-solid fa-fire text-black mr-1"></i> Máximo Rendimiento Muscular
             </span>
