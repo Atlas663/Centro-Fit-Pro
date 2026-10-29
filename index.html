@@ -44,34 +44,35 @@
                 <a href="https://www.instagram.com/centrofitpro_cucuta/?hl=es-la" target="_blank" class="text-gray-300 hover:text-red-500 bg-gray-900 border border-red-900/40 px-3.5 py-1.5 rounded-full text-xs flex items-center gap-2 transition-all hover:border-red-600">
                     <i class="fa-brands fa-instagram text-red-500 text-sm"></i> @centrofitpro_cucuta
                 </a>
-                <a href="https://wa.me/573212277162?text=Hola%20CENTRO%20FIT%20PRO,%20vengo%20de%20su%20página%20web%20y%20quiero%20más%20información" target="_blank" class="text-gray-300 hover:text-green-400 bg-gray-900 border border-green-900/40 px-3.5 py-1.5 rounded-full text-xs flex items-center gap-2 transition-all hover:border-green-600">
+                <a href="https://wa.me/573212277162?text=Hola%20CENTRO%20FIT%20PRO,%20vengo%20de%20su%20p%C3%A1gina%20web%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="text-gray-300 hover:text-green-400 bg-gray-900 border border-green-900/40 px-3.5 py-1.5 rounded-full text-xs flex items-center gap-2 transition-all hover:border-green-600">
                     <i class="fa-brands fa-whatsapp text-green-500 text-sm"></i> WhatsApp
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Banner Principal (Hombre izquierda y Mujer derecha continuos, alta iluminación) -->
-    <section class="relative bg-black py-20 px-4 border-b border-red-600/50 text-center overflow-hidden flex">
-        <!-- Mitad Izquierda: Hombre alzando peso (Alta iluminación) -->
-        <div class="absolute inset-y-0 left-0 w-1/2 opacity-80 filter brightness-125 contrast-110 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1000&auto=format&fit=crop');"></div>
-        
-        <!-- Mitad Derecha: Mujer alzando peso (Alta iluminación) -->
-        <div class="absolute inset-y-0 right-0 w-1/2 opacity-80 filter brightness-125 contrast-110 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1000&auto=format&fit=crop');"></div>
+    <!-- Banner Principal (Imagen continua fusionada, sin líneas divisorias y con alta iluminación) -->
+    <section class="relative bg-black py-20 px-4 border-b border-red-600/50 text-center overflow-hidden">
+        <!-- Contenedor con imágenes continuas traslapadas suavemente -->
+        <div class="absolute inset-0 flex pointer-events-none">
+            <!-- Lado Izquierdo: Hombre entrenando pesas -->
+            <div class="w-1/2 h-full bg-cover bg-center filter brightness-140 contrast-110" style="background-image: url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1000&auto=format&fit=crop');"></div>
+            <!-- Lado Derecho: Mujer entrenando pesas -->
+            <div class="w-1/2 h-full bg-cover bg-center filter brightness-140 contrast-110" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1000&auto=format&fit=crop');"></div>
+        </div>
 
-        <!-- Capa de oscurecimiento suave uniforme para fundir ambas imágenes y resaltar el texto -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50"></div>
+        <!-- Capa de sombra muy suave en los bordes superiores e inferiores para lectura perfecta del texto -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70"></div>
 
-        <!-- Contenido Central -->
-        <div class="relative max-w-3xl mx-auto z-10 w-full">
+        <!-- Contenido Central Intacto en Estructura -->
+        <div class="relative max-w-3xl mx-auto z-10">
             <span class="text-xs font-bold uppercase tracking-widest text-white bg-red-600 border border-red-500 px-3.5 py-1.5 rounded-full mb-4 inline-block shadow-[0_0_20px_rgba(255,0,0,0.8)]">
                 <i class="fa-solid fa-fire text-black mr-1"></i> Máximo Rendimiento Muscular
             </span>
-            <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white mb-3 drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]">
+            <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white mb-3 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]">
                 Suplementación de <span class="text-red-500 underline decoration-red-600 drop-shadow-[0_0_15px_rgba(255,0,0,0.9)]">Alto Nivel</span>
             </h2>
-            <p class="text-gray-100 text-sm sm:text-base font-medium max-w-2xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            <p class="text-white text-sm sm:text-base font-semibold max-w-2xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">
                 Catálogo oficial de CENTRO FIT PRO en Cúcuta. Potencia tus entrenamientos de fuerza y masa muscular. Precios netos con domicilio incluido.
             </p>
         </div>
