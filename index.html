@@ -44,7 +44,7 @@
                 <a href="https://www.instagram.com/centrofitpro_cucuta/?hl=es-la" target="_blank" class="text-gray-300 hover:text-red-500 bg-gray-900 border border-red-900/40 px-3.5 py-1.5 rounded-full text-xs flex items-center gap-2 transition-all hover:border-red-600">
                     <i class="fa-brands fa-instagram text-red-500 text-sm"></i> @centrofitpro_cucuta
                 </a>
-                <a href="https://wa.me/573212277162?text=Hola%20CENTRO%20FIT%20PRO,%20vengo%20de%20su%20p%C3%A1gina%20web%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="text-gray-300 hover:text-green-400 bg-gray-900 border border-green-900/40 px-3.5 py-1.5 rounded-full text-xs flex items-center gap-2 transition-all hover:border-green-600">
+                <a href="https://wa.me/573212277162?text=Hola%20CENTRO%20FIT%20PRO,%20vengo%20de%20su%20página%20web%20y%20quiero%20más%20información" target="_blank" class="text-gray-300 hover:text-green-400 bg-gray-900 border border-green-900/40 px-3.5 py-1.5 rounded-full text-xs flex items-center gap-2 transition-all hover:border-green-600">
                     <i class="fa-brands fa-whatsapp text-green-500 text-sm"></i> WhatsApp
                 </a>
             </div>
@@ -480,19 +480,19 @@
 
             const totalTexto = formatearCOP(productoActual.subtotal);
 
-            // Construcción del mensaje con el formato exacto solicitado
-            const mensaje = `🏋️‍♂️ NUEVO PEDIDO - CENTRO FIT PRO CÚCUTA 🏋️‍♂️
+            // Uso de códigos Unicode seguros para emojis en JavaScript
+            const mensaje = `\u{1F3CB}\u{FE0F}\u{200D}\u{2642}\u{FE0F} NUEVO PEDIDO - CENTRO FIT PRO CÚCUTA \u{1F3CB}\u{FE0F}\u{200D}\u{2642}\u{FE0F}
 -------------------------------------------
-👤 Cliente: ${nombreCliente}
-📍 Ubicación/Barrio: ${ubicacionCliente}
+\u{1F464} Cliente: ${nombreCliente}
+\u{1F4CD} Ubicación/Barrio: ${ubicacionCliente}
 -------------------------------------------
 
-📦 DETALLE DE SUPLEMENTOS: 
+\u{1F4E6} DETALLE DE SUPLEMENTOS: 
 1. ${productoActual.nombre}
-   └ Cantidad: ${productoActual.cantidad} unid. | Subtotal: ${totalTexto}
+   \u{2514} Cantidad: ${productoActual.cantidad} unid. | Subtotal: ${totalTexto}
 
 -------------------------------------------
-💰 TOTAL A PAGAR: ${totalTexto}
+\u{1F4B0} TOTAL A PAGAR: ${totalTexto}
 -------------------------------------------
 ¡Quedo atento a los datos de transferencia / pago contraentrega!`;
 
