@@ -113,16 +113,16 @@
         </div>
     </section>
 
-    <!-- SECCIÓN: Calculadoras de Nutrición (Creatina y Proteína) -->
+    <!-- SECCIÓN: Calculadoras de Dosis para Suplementos -->
     <section class="max-w-6xl mx-auto px-4 mb-12 w-full">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            <!-- Calculadora de Creatina -->
+            <!-- Calculadora de Dosis de Creatina -->
             <div class="bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 border border-red-600/50 rounded-3xl p-6 shadow-[0_0_25px_rgba(255,0,0,0.15)] flex flex-col justify-between">
                 <div>
                     <div class="text-center mb-5">
-                        <h3 class="text-lg sm:text-xl font-black text-white uppercase">Calcula tu Dosis de Creatina</h3>
-                        <p class="text-gray-400 text-xs mt-1">Gramos diarios recomendados según tu peso.</p>
+                        <h3 class="text-lg sm:text-xl font-black text-white uppercase">Calculadora Scoops de Creatina</h3>
+                        <p class="text-gray-400 text-xs mt-1">Calcula cuántos gramos y scoops tomar del tarro.</p>
                     </div>
                     <div class="flex flex-col gap-3">
                         <div>
@@ -137,41 +137,41 @@
                             </select>
                         </div>
                         <button type="button" onclick="calcularCreatina()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-[0_0_10px_rgba(255,0,0,0.4)] transition-all text-sm">
-                            Calcular Creatina
+                            Calcular Dosis de Creatina
                         </button>
                     </div>
                 </div>
                 <div id="resultado-creatina" class="bg-black/80 border border-gray-800 rounded-xl p-4 mt-5 text-center min-h-[90px] flex flex-col justify-center items-center">
-                    <p class="text-gray-400 text-xs">Ingresa tu peso para ver la recomendación.</p>
+                    <p class="text-gray-400 text-xs">Ingresa tu peso para ver los gramos y scoops.</p>
                 </div>
             </div>
 
-            <!-- Calculadora de Proteína -->
+            <!-- Calculadora de Dosis de Proteína en Polvo -->
             <div class="bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 border border-red-600/50 rounded-3xl p-6 shadow-[0_0_25px_rgba(255,0,0,0.15)] flex flex-col justify-between">
                 <div>
                     <div class="text-center mb-5">
-                        <h3 class="text-lg sm:text-xl font-black text-white uppercase">Calcula tu Proteína Diaria</h3>
-                        <p class="text-gray-400 text-xs mt-1">Gramos diarios recomendados para tu meta.</p>
+                        <h3 class="text-lg sm:text-xl font-black text-white uppercase">Calculadora Batido de Proteína</h3>
+                        <p class="text-gray-400 text-xs mt-1">Calcula cuántos gramos y scoops tomar del tarro.</p>
                     </div>
                     <div class="flex flex-col gap-3">
                         <div>
                             <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Tu Peso (Kg)</label>
-                            <input type="number" id="peso-proteina" placeholder="Ej: 70" min="30" max="200" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none font-bold">
+                            <input type="number" id="peso-proteina" placeholder="Ej: 65" min="30" max="200" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none font-bold">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Objetivo Físico</label>
+                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Objetivo / Tipo de Toma</label>
                             <select id="objetivo-proteina" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none font-bold cursor-pointer">
-                                <option value="mantenimiento">Mantenimiento / Tonificación</option>
-                                <option value="volumen">Aumento de Masa Muscular (Volumen)</option>
+                                <option value="post">Post-Entreno Estándar (1 Scoop)</option>
+                                <option value="extra">Alta Demanda / Doble Refuerzo (1.5 Scoops)</option>
                             </select>
                         </div>
                         <button type="button" onclick="calcularProteina()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-[0_0_10px_rgba(255,0,0,0.4)] transition-all text-sm">
-                            Calcular Proteína
+                            Calcular Dosis de Proteína
                         </button>
                     </div>
                 </div>
                 <div id="resultado-proteina" class="bg-black/80 border border-gray-800 rounded-xl p-4 mt-5 text-center min-h-[90px] flex flex-col justify-center items-center">
-                    <p class="text-gray-400 text-xs">Ingresa tu peso para ver la recomendación.</p>
+                    <p class="text-gray-400 text-xs">Ingresa tu peso para ver la porción del batido.</p>
                 </div>
             </div>
 
@@ -520,7 +520,7 @@
             subtotal: 0
         };
 
-        // Lógica de la Calculadora de Creatina
+        // Lógica Calculadora Creatina (Gramos y Scoops basados en cuchara de 5g)
         function calcularCreatina() {
             const peso = parseFloat(document.getElementById('peso-creatina').value);
             const nivel = document.getElementById('nivel-creatina').value;
@@ -533,15 +533,19 @@
 
             let gramos = peso * 0.1;
             if (nivel === 'intenso') gramos *= 1.15;
+            let gramosFinal = parseFloat(gramos.toFixed(1));
+            
+            // Suponiendo scoop estándar de 5g
+            let scoops = (gramosFinal / 5).toFixed(1);
 
             contenedor.innerHTML = `
-                <span class="text-xs text-gray-400 uppercase font-bold">Dosis Diaria Creatina:</span>
-                <div class="text-2xl font-black text-red-500 my-0.5">${gramos.toFixed(1)} gramos</div>
-                <p class="text-gray-300 text-[11px]">Ideal para potenciar fuerza y rendimiento.</p>
+                <span class="text-xs text-gray-400 uppercase font-bold">Dosis en el Tarro:</span>
+                <div class="text-xl sm:text-2xl font-black text-red-500 my-0.5">${gramosFinal} g (${scoops} scoop)</div>
+                <p class="text-gray-300 text-[11px]">Tomar diario disuelto en agua o tu bebida favorita.</p>
             `;
         }
 
-        // Lógica de la Calculadora de Proteína
+        // Lógica Calculadora Proteína en Polvo (Gramos de producto y Scoops del tarro)
         function calcularProteina() {
             const peso = parseFloat(document.getElementById('peso-proteina').value);
             const objetivo = document.getElementById('objetivo-proteina').value;
@@ -552,13 +556,15 @@
                 return;
             }
 
-            let multiplicador = objetivo === 'volumen' ? 2.0 : 1.6; // 1.6g a 2.0g por kg
-            let gramos = peso * multiplicador;
+            // Un scoop estándar de proteína aporta aprox 24g de proteína neta (eldosificador completo pesa unos 30g de producto en polvo).
+            // Si el objetivo es post-entreno estándar, se recomienda 1 scoop (aprox 30g de polvo). Si es extra, 1.5 scoops (aprox 45g de polvo).
+            let scoops = objetivo === 'extra' ? '1.5 scoops' : '1 scoop';
+            let gramosPolvo = objetivo === 'extra' ? '45 gramos de polvo' : '30 gramos de polvo';
 
             contenedor.innerHTML = `
-                <span class="text-xs text-gray-400 uppercase font-bold">Proteína Diaria Sugerida:</span>
-                <div class="text-2xl font-black text-red-500 my-0.5">${Math.round(gramos)} gramos</div>
-                <p class="text-gray-300 text-[11px]">Esencial para tu recuperación y masa muscular.</p>
+                <span class="text-xs text-gray-400 uppercase font-bold">Porción de Batido Sugerida:</span>
+                <div class="text-xl sm:text-2xl font-black text-red-500 my-0.5">${scoops} (${gramosPolvo})</div>
+                <p class="text-gray-300 text-[11px]">Cantidad ideal por batido para mezclar con agua o leche.</p>
             `;
         }
 
