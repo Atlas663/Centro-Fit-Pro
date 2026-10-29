@@ -113,54 +113,68 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN: Calculadora Interactiva de Dosis de Creatina -->
-    <section class="max-w-4xl mx-auto px-4 mb-12 w-full">
-        <div class="bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 border border-red-600/50 rounded-3xl p-6 sm:p-8 shadow-[0_0_30px_rgba(255,0,0,0.15)] relative overflow-hidden">
-            <div class="absolute -right-10 -bottom-10 text-red-600/10 text-9xl pointer-events-none">
-                <i class="fa-solid fa-calculator"></i>
-            </div>
+    <!-- SECCIÓN: Calculadoras de Nutrición (Creatina y Proteína) -->
+    <section class="max-w-6xl mx-auto px-4 mb-12 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            <div class="text-center max-w-xl mx-auto mb-6">
-                <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/80 border border-red-900/60 px-3 py-1 rounded-full">
-                    <i class="fa-solid fa-bolt text-red-500 mr-1"></i> Herramienta Interactiva
-                </span>
-                <h3 class="text-xl sm:text-2xl font-black text-white uppercase mt-3">Calcula tu Dosis Ideal de Creatina</h3>
-                <p class="text-gray-400 text-xs sm:text-sm mt-1">Ingresa tu peso corporal para conocer los gramos exactos diarios recomendados para tu rendimiento.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center bg-black/60 border border-gray-800 rounded-2xl p-5 sm:p-6">
-                <div class="flex flex-col gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase mb-2">Tu Peso Corporal (Kg)</label>
-                        <input type="number" id="input-peso" placeholder="Ej: 70" min="30" max="200" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none transition-all font-bold">
+            <!-- Calculadora de Creatina -->
+            <div class="bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 border border-red-600/50 rounded-3xl p-6 shadow-[0_0_25px_rgba(255,0,0,0.15)] flex flex-col justify-between">
+                <div>
+                    <div class="text-center mb-5">
+                        <h3 class="text-lg sm:text-xl font-black text-white uppercase">Calcula tu Dosis de Creatina</h3>
+                        <p class="text-gray-400 text-xs mt-1">Gramos diarios recomendados según tu peso.</p>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase mb-2">Nivel de Actividad / Objetivo</label>
-                        <select id="select-objetivo" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-all cursor-pointer font-bold">
-                            <option value="mantenimiento">Entrenamiento Estándar / Fuerza</option>
-                            <option value="intenso">Alto Rendimiento / Volumen Intenso</option>
-                        </select>
-                    </div>
-                    <button type="button" onclick="calcularCreatina()" class="w-full bg-red-600 hover:bg-red-700 text-white font-extrabold py-3 px-4 rounded-xl shadow-[0_0_15px_rgba(255,0,0,0.4)] transition-all flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> Calcular Dosis
-                    </button>
-                </div>
-
-                <div id="resultado-calculadora" class="bg-gray-950 border border-red-900/40 rounded-xl p-5 text-center flex flex-col justify-center items-center h-full min-h-[160px]">
-                    <div id="calculadora-placeholder">
-                        <i class="fa-solid fa-scale-balanced text-red-500/50 text-3xl mb-2"></i>
-                        <p class="text-gray-400 text-xs">Ingresa tus datos a la izquierda y haz clic en calcular para ver tu recomendación.</p>
-                    </div>
-                    <div id="calculadora-resultado" class="hidden flex flex-col items-center">
-                        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Dosis diaria recomendada:</span>
-                        <div id="dosis-gramos" class="text-3xl sm:text-4xl font-black text-red-500 my-1 drop-shadow-[0_0_10px_rgba(255,0,0,0.6)]">0 g</div>
-                        <p id="consejo-dosis" class="text-gray-300 text-xs mt-1 px-2">Consumir diariamente antes o después de entrenar.</p>
-                        <a href="#catalogo-productos" class="mt-4 bg-gray-900 hover:bg-red-950 border border-red-600/50 text-white text-xs font-bold py-2 px-4 rounded-lg transition-all flex items-center gap-1.5">
-                            <i class="fa-solid fa-arrow-down text-red-500">></i> Ver Creatinas Disponibles
-                        </a>
+                    <div class="flex flex-col gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Tu Peso (Kg)</label>
+                            <input type="number" id="peso-creatina" placeholder="Ej: 70" min="30" max="200" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Intensidad</label>
+                            <select id="nivel-creatina" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none font-bold cursor-pointer">
+                                <option value="estandar">Estándar / Fuerza</option>
+                                <option value="intenso">Alto Rendimiento / Volumen</option>
+                            </select>
+                        </div>
+                        <button type="button" onclick="calcularCreatina()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-[0_0_10px_rgba(255,0,0,0.4)] transition-all text-sm">
+                            Calcular Creatina
+                        </button>
                     </div>
                 </div>
+                <div id="resultado-creatina" class="bg-black/80 border border-gray-800 rounded-xl p-4 mt-5 text-center min-h-[90px] flex flex-col justify-center items-center">
+                    <p class="text-gray-400 text-xs">Ingresa tu peso para ver la recomendación.</p>
+                </div>
             </div>
+
+            <!-- Calculadora de Proteína -->
+            <div class="bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 border border-red-600/50 rounded-3xl p-6 shadow-[0_0_25px_rgba(255,0,0,0.15)] flex flex-col justify-between">
+                <div>
+                    <div class="text-center mb-5">
+                        <h3 class="text-lg sm:text-xl font-black text-white uppercase">Calcula tu Proteína Diaria</h3>
+                        <p class="text-gray-400 text-xs mt-1">Gramos diarios recomendados para tu meta.</p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Tu Peso (Kg)</label>
+                            <input type="number" id="peso-proteina" placeholder="Ej: 70" min="30" max="200" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Objetivo Físico</label>
+                            <select id="objetivo-proteina" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none font-bold cursor-pointer">
+                                <option value="mantenimiento">Mantenimiento / Tonificación</option>
+                                <option value="volumen">Aumento de Masa Muscular (Volumen)</option>
+                            </select>
+                        </div>
+                        <button type="button" onclick="calcularProteina()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-[0_0_10px_rgba(255,0,0,0.4)] transition-all text-sm">
+                            Calcular Proteína
+                        </button>
+                    </div>
+                </div>
+                <div id="resultado-proteina" class="bg-black/80 border border-gray-800 rounded-xl p-4 mt-5 text-center min-h-[90px] flex flex-col justify-center items-center">
+                    <p class="text-gray-400 text-xs">Ingresa tu peso para ver la recomendación.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -508,33 +522,44 @@
 
         // Lógica de la Calculadora de Creatina
         function calcularCreatina() {
-            const pesoInput = document.getElementById('input-peso').value;
-            const objetivo = document.getElementById('select-objetivo').value;
-            const placeholder = document.getElementById('calculadora-placeholder');
-            const resultadoDiv = document.getElementById('calculadora-resultado');
-            const dosisGramos = document.getElementById('dosis-gramos');
-            const consejoDosis = document.getElementById('consejo-dosis');
-
-            const peso = parseFloat(pesoInput);
+            const peso = parseFloat(document.getElementById('peso-creatina').value);
+            const nivel = document.getElementById('nivel-creatina').value;
+            const contenedor = document.getElementById('resultado-creatina');
 
             if (!peso || peso <= 0 || peso > 300) {
-                alert('Por favor ingresa un peso corporal válido en kilogramos.');
+                alert('Por favor ingresa un peso válido en kg.');
                 return;
             }
 
-            // Cálculo estándar basado en evidencia: 0.1g por kg de peso corporal
             let gramos = peso * 0.1;
-            if (objetivo === 'intenso') {
-                gramos = gramos * 1.15; // Ajuste para alto rendimiento
+            if (nivel === 'intenso') gramos *= 1.15;
+
+            contenedor.innerHTML = `
+                <span class="text-xs text-gray-400 uppercase font-bold">Dosis Diaria Creatina:</span>
+                <div class="text-2xl font-black text-red-500 my-0.5">${gramos.toFixed(1)} gramos</div>
+                <p class="text-gray-300 text-[11px]">Ideal para potenciar fuerza y rendimiento.</p>
+            `;
+        }
+
+        // Lógica de la Calculadora de Proteína
+        function calcularProteina() {
+            const peso = parseFloat(document.getElementById('peso-proteina').value);
+            const objetivo = document.getElementById('objetivo-proteina').value;
+            const contenedor = document.getElementById('resultado-proteina');
+
+            if (!peso || peso <= 0 || peso > 300) {
+                alert('Por favor ingresa un peso válido en kg.');
+                return;
             }
 
-            // Redondear a decimales limpios
-            let gramosFinales = gramos.toFixed(1);
+            let multiplicador = objetivo === 'volumen' ? 2.0 : 1.6; // 1.6g a 2.0g por kg
+            let gramos = peso * multiplicador;
 
-            placeholder.classList.add('hidden');
-            resultadoDiv.classList.remove('hidden');
-            dosisGramos.textContent = gramosFinales + ' gramos';
-            consejoDosis.textContent = `Basado en tus ${peso} kg. Ideal para potenciar tu fuerza y recuperación muscular.`;
+            contenedor.innerHTML = `
+                <span class="text-xs text-gray-400 uppercase font-bold">Proteína Diaria Sugerida:</span>
+                <div class="text-2xl font-black text-red-500 my-0.5">${Math.round(gramos)} gramos</div>
+                <p class="text-gray-300 text-[11px]">Esencial para tu recuperación y masa muscular.</p>
+            `;
         }
 
         function filtrarProductos(categoria, btnElement) {
