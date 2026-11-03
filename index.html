@@ -73,7 +73,7 @@
                 Suplementación de <span class="text-red-500 underline decoration-red-600 drop-shadow-[0_0_15px_rgba(255,0,0,0.9)]">Alto Nivel</span>
             </h2>
             <p class="text-white text-sm sm:text-base font-semibold max-w-2xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">
-                Catálogo oficial de CENTRO FIT PRO en Cúcuta. Potencia tus entrenamientos de fuerza y masa muscular. Precios netos con domicilio incluido.
+                Catálogo oficial de CENTRO FIT PRO en Cúcuta. Potencia tus entrenamientos de fuerza y masa muscular.
             </p>
         </div>
     </section>
@@ -87,7 +87,7 @@
                 </div>
                 <div>
                     <h3 class="font-bold text-white text-sm">Envíos Rápidos y Seguros</h3>
-                    <p class="text-gray-400 text-xs mt-0.5">Domicilio eficiente e incluido en toda Cúcuta.</p>
+                    <p class="text-gray-400 text-xs mt-0.5">Domicilio eficiente en toda Cúcuta.</p>
                 </div>
             </div>
 
@@ -213,7 +213,7 @@
                             <td class="p-3">1 Libra (454g)</td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-bold text-white">Precio (c/ Domicilio)</td>
+                            <td class="p-3 font-bold text-white">Precio</td>
                             <td class="p-3 font-bold text-white">$106.000 COP</td>
                             <td class="p-3 font-bold text-red-500">$164.000 COP</td>
                             <td class="p-3 font-bold text-white">$63.000 COP</td>
@@ -238,12 +238,115 @@
         <!-- Botones de Filtro -->
         <div class="flex flex-wrap justify-center gap-2 mb-10">
             <button onclick="filtrarProductos('todos', this)" class="filtro-btn bg-red-600 text-white font-semibold px-4 py-2 rounded-xl text-sm shadow-[0_0_15px_rgba(255,0,0,0.5)] transition-all">Todos</button>
+            <button onclick="filtrarProductos('combos', this)" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Combos 🔥</button>
             <button onclick="filtrarProductos('creatina', this)" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Creatinas</button>
             <button onclick="filtrarProductos('proteina', this)" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Proteínas</button>
             <button onclick="filtrarProductos('ganador', this)" class="filtro-btn bg-gray-900 text-gray-400 border border-gray-800 hover:border-red-600 px-4 py-2 rounded-xl text-sm transition-all">Ganadores</button>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Combo 1: Fuerza Total -->
+            <div class="producto-item bg-gray-950 border border-red-600/80 rounded-2xl overflow-hidden shadow-[0_0_20px_rgba(255,0,0,0.3)] flex flex-col justify-between relative" data-category="combos">
+                <div>
+                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 shadow-md relative">
+                        <span class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow-md tracking-wider animate-pulse">🔥 Combo Top</span>
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_853693-MCO89452251550_082025-F.webp" alt="Combo Fuerza Total" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-5 pt-2">
+                        <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/50 px-2.5 py-1 rounded border border-red-900/30">Combo</span>
+                        <h3 class="text-xl font-bold text-white mt-3">Combo Fuerza Total</h3>
+                        <p class="text-gray-400 text-sm mt-2">Crea4Smart (92 Serv) + Whey Pure (1 Lb). Potencia explosiva y recuperación superior.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex flex-col gap-3 mt-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-500 block">Precio</span>
+                            <span class="text-2xl font-black text-white">$174.500 <span class="text-xs text-red-500 font-normal">COP</span></span>
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-black border border-gray-800 rounded-xl px-2 py-1">
+                            <span class="text-xs text-gray-400 font-medium">Cant:</span>
+                            <select id="cant-combo1" class="bg-transparent text-white text-sm font-bold focus:outline-none cursor-pointer">
+                                <option value="1" class="bg-gray-900">1</option>
+                                <option value="2" class="bg-gray-900">2</option>
+                                <option value="3" class="bg-gray-900">3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button onclick="abrirPanelPedido('Combo Fuerza Total (Crea4Smart + Whey Pure)', 174500, 'cant-combo1')" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-[0_0_10px_rgba(255,0,0,0.5)] flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-cart-shopping"></i> Pedir
+                    </button>
+                </div>
+            </div>
+
+            <!-- Combo 2: Volumen Extremo -->
+            <div class="producto-item bg-gray-950 border border-red-600/80 rounded-2xl overflow-hidden shadow-[0_0_20px_rgba(255,0,0,0.3)] flex flex-col justify-between relative" data-category="combos">
+                <div>
+                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 shadow-md relative">
+                        <span class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow-md tracking-wider">🔥 Superávit</span>
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_664410-MCO116323800646_092026-F.webp" alt="Combo Volumen Extremo" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-5 pt-2">
+                        <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/50 px-2.5 py-1 rounded border border-red-900/30">Combo</span>
+                        <h3 class="text-xl font-bold text-white mt-3">Combo Volumen Extremo</h3>
+                        <p class="text-gray-400 text-sm mt-2">Mega Gainer (1 Lb) + Creatina GMN (100 g). Diseñado para subir de peso y masa muscular.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex flex-col gap-3 mt-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-500 block">Precio</span>
+                            <span class="text-2xl font-black text-white">$103.300 <span class="text-xs text-red-500 font-normal">COP</span></span>
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-black border border-gray-800 rounded-xl px-2 py-1">
+                            <span class="text-xs text-gray-400 font-medium">Cant:</span>
+                            <select id="cant-combo2" class="bg-transparent text-white text-sm font-bold focus:outline-none cursor-pointer">
+                                <option value="1" class="bg-gray-900">1</option>
+                                <option value="2" class="bg-gray-900">2</option>
+                                <option value="3" class="bg-gray-900">3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button onclick="abrirPanelPedido('Combo Volumen Extremo (Mega Gainer + Creatina GMN)', 103300, 'cant-combo2')" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-[0_0_10px_rgba(255,0,0,0.5)] flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-cart-shopping"></i> Pedir
+                    </button>
+                </div>
+            </div>
+
+            <!-- Combo 3: Rendimiento Diario -->
+            <div class="producto-item bg-gray-950 border border-red-600/80 rounded-2xl overflow-hidden shadow-[0_0_20px_rgba(255,0,0,0.3)] flex flex-col justify-between relative" data-category="combos">
+                <div>
+                    <div class="h-64 m-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 shadow-md relative">
+                        <span class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow-md tracking-wider">🔥 Rendimiento</span>
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_607644-MCO117728012589_092026-F.webp" alt="Combo Rendimiento Diario" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-5 pt-2">
+                        <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/50 px-2.5 py-1 rounded border border-red-900/30">Combo</span>
+                        <h3 class="text-xl font-bold text-white mt-3">Combo Rendimiento Diario</h3>
+                        <p class="text-gray-400 text-sm mt-2">Creatina Time Vitanas (50 Serv) + Whey Army (2 Lb). Suplementación constante y rendidora.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex flex-col gap-3 mt-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-500 block">Precio</span>
+                            <span class="text-2xl font-black text-white">$222.000 <span class="text-xs text-red-500 font-normal">COP</span></span>
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-black border border-gray-800 rounded-xl px-2 py-1">
+                            <span class="text-xs text-gray-400 font-medium">Cant:</span>
+                            <select id="cant-combo3" class="bg-transparent text-white text-sm font-bold focus:outline-none cursor-pointer">
+                                <option value="1" class="bg-gray-900">1</option>
+                                <option value="2" class="bg-gray-900">2</option>
+                                <option value="3" class="bg-gray-900">3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button onclick="abrirPanelPedido('Combo Rendimiento Diario (Creatina Vitanas + Whey Army)', 222000, 'cant-combo3')" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-[0_0_10px_rgba(255,0,0,0.5)] flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-cart-shopping"></i> Pedir
+                    </button>
+                </div>
+            </div>
 
             <!-- Producto 1: Crea4Smart -->
             <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between relative" data-category="creatina">
@@ -261,7 +364,7 @@
                 <div class="p-5 pt-0 flex flex-col gap-3 mt-4">
                     <div class="flex items-center justify-between">
                         <div>
-                           <span class="text-xs text-gray-500 block">Precio</span>
+                            <span class="text-xs text-gray-500 block">Precio</span>
                             <span class="text-2xl font-black text-white">$75.500 <span class="text-xs text-red-500 font-normal">COP</span></span>
                         </div>
                         <div class="flex items-center gap-1.5 bg-black border border-gray-800 rounded-xl px-2 py-1">
@@ -296,7 +399,7 @@
                 <div class="p-5 pt-0 flex flex-col gap-3 mt-4">
                     <div class="flex items-center justify-between">
                         <div>
-                            <span class="text-xs text-gray-500 block">Precio (Incluye Domicilio)</span>
+                            <span class="text-xs text-gray-500 block">Precio</span>
                             <span class="text-2xl font-black text-white">$65.000 <span class="text-xs text-red-500 font-normal">COP</span></span>
                         </div>
                         <div class="flex items-center gap-1.5 bg-black border border-gray-800 rounded-xl px-2 py-1">
@@ -331,7 +434,7 @@
                 <div class="p-5 pt-0 flex flex-col gap-3 mt-4">
                     <div class="flex items-center justify-between">
                         <div>
-                            <span class="text-xs text-gray-500 block">Precio (Incluye Domicilio)</span>
+                            <span class="text-xs text-gray-500 block">Precio</span>
                             <span class="text-2xl font-black text-white">$47.300 <span class="text-xs text-red-500 font-normal">COP</span></span>
                         </div>
                         <div class="flex items-center gap-1.5 bg-black border border-gray-800 rounded-xl px-2 py-1">
@@ -366,7 +469,7 @@
                 <div class="p-5 pt-0 flex flex-col gap-3 mt-4">
                     <div class="flex items-center justify-between">
                         <div>
-                            <span class="text-xs text-gray-500 block">Precio (Incluye Domicilio)</span>
+                            <span class="text-xs text-gray-500 block">Precio</span>
                             <span class="text-2xl font-black text-white">$106.000 <span class="text-xs text-red-500 font-normal">COP</span></span>
                         </div>
                         <div class="flex items-center gap-1.5 bg-black border border-gray-800 rounded-xl px-2 py-1">
@@ -386,7 +489,7 @@
                 </div>
             </div>
 
-            <!-- Producto 5: Whey Army 2 LB (Etiqueta Bestseller / Más Vendido) -->
+            <!-- Producto 5: Whey Army 2 LB -->
             <div class="producto-item bg-gray-950 border border-red-600/80 rounded-2xl overflow-hidden shadow-[0_0_20px_rgba(255,0,0,0.3)] flex flex-col justify-between relative" data-category="proteina">
                 <div>
                     <div class="h-64 m-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 shadow-md relative">
@@ -402,7 +505,7 @@
                 <div class="p-5 pt-0 flex flex-col gap-3 mt-4">
                     <div class="flex items-center justify-between">
                         <div>
-                            <span class="text-xs text-gray-500 block">Precio (Incluye Domicilio)</span>
+                            <span class="text-xs text-gray-500 block">Precio</span>
                             <span class="text-2xl font-black text-white">$164.000 <span class="text-xs text-red-500 font-normal">COP</span></span>
                         </div>
                         <div class="flex items-center gap-1.5 bg-black border border-gray-800 rounded-xl px-2 py-1">
@@ -426,18 +529,18 @@
             <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="ganador">
                 <div>
                     <div class="h-64 m-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 shadow-md">
-                        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR4ySjqHI3Fk_zWjZCqpqumYH0wOv0mnvlMOcLVWpK9apibNX1cs1vyUThbqoHdAyVywAS4QQP4UCXQd_6iN3Xyr0d5akc5WFP2SI3WOgfq-nWQqH-gF7Qx2p8" alt="Mega Gainer 1 LB" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_701549-MCO89452097780_082025-F.webp" alt="Mega Gainer 1 LB" class="max-h-full object-contain hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-5 pt-2">
                         <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/50 px-2.5 py-1 rounded border border-red-900/30">Ganador de Peso</span>
                         <h3 class="text-xl font-bold text-white mt-3">Mega Gainer 1 LB</h3>
-                        <p class="text-gray-400 text-sm mt-2">Formulado para ayudarte a subir de peso, masa muscular y volumen de forma efectiva.</p>
+                        <p class="text-gray-400 text-sm mt-2">Proteína hipercalórica formulada para ganar masa muscular y peso de forma eficiente.</p>
                     </div>
                 </div>
                 <div class="p-5 pt-0 flex flex-col gap-3 mt-4">
                     <div class="flex items-center justify-between">
                         <div>
-                            <span class="text-xs text-gray-500 block">Precio (Incluye Domicilio)</span>
+                            <span class="text-xs text-gray-500 block">Precio</span>
                             <span class="text-2xl font-black text-white">$63.000 <span class="text-xs text-red-500 font-normal">COP</span></span>
                         </div>
                         <div class="flex items-center gap-1.5 bg-black border border-gray-800 rounded-xl px-2 py-1">
@@ -460,321 +563,116 @@
         </div>
     </main>
 
-    <!-- SECCIÓN: Preguntas Frecuentes (FAQ Interactivo) -->
-    <section class="max-w-4xl mx-auto px-4 my-12 w-full">
-        <div class="text-center mb-8">
-            <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/70 border border-red-900/50 px-3 py-1 rounded-full">
-                <i class="fa-solid fa-circle-question mr-1"></i> Resuelve tus dudas
-            </span>
-            <h3 class="text-2xl font-black text-white uppercase mt-3">Preguntas Frecuentes</h3>
-        </div>
-
-        <div class="flex flex-col gap-3">
-            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden">
-                <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-white text-sm sm:text-base flex justify-between items-center hover:text-red-500 transition-colors">
-                    ¿El precio de los productos incluye envío en Cúcuta?
-                    <i class="fa-solid fa-chevron-down text-red-500 transition-transform"></i>
-                </button>
-                <div class="faq-respuesta hidden p-4 pt-0 text-gray-400 text-xs sm:text-sm border-t border-gray-900">
-                    ¡Sí! Todos los precios listados en nuestro catálogo incluyen el domicilio directo hasta tu casa u oficina en la ciudad de Cúcuta.
-                </div>
-            </div>
-
-            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden">
-                <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-white text-sm sm:text-base flex justify-between items-center hover:text-red-500 transition-colors">
-                    ¿Cuáles son las formas de pago aceptadas?
-                    <i class="fa-solid fa-chevron-down text-red-500 transition-transform"></i>
-                </button>
-                <div class="faq-respuesta hidden p-4 pt-0 text-gray-400 text-xs sm:text-sm border-t border-gray-900">
-                    Manejamos pago en efectivo contra entrega (pagas cuando recibes tu producto) o transferencia electrónica directa a nuestra cuenta Bancolombia.
-                </div>
-            </div>
-
-            <div class="bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden">
-                <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-white text-sm sm:text-base flex justify-between items-center hover:text-red-500 transition-colors">
-                    ¿Son productos 100% originales?
-                    <i class="fa-solid fa-chevron-down text-red-500 transition-transform"></i>
-                </button>
-                <div class="faq-respuesta hidden p-4 pt-0 text-gray-400 text-xs sm:text-sm border-t border-gray-900">
-                    Absolutamente. En CENTRO FIT PRO solo distribuimos marcas oficiales y certificadas con registro INVIMA para garantizar tu salud y rendimiento deportivo.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Métodos de Pago y Confianza -->
-    <section class="max-w-6xl mx-auto px-4 my-12 w-full">
-        <div class="bg-gray-950 border border-red-900/40 rounded-2xl p-6 sm:p-8 shadow-[0_0_20px_rgba(255,0,0,0.15)]">
-            <div class="text-center mb-6">
-                <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/70 border border-red-900/50 px-3 py-1 rounded-full">
-                    <i class="fa-solid fa-shield-halved text-red-500 mr-1"></i> Transacciones Seguras
-                </span>
-                <h3 class="text-xl sm:text-2xl font-black text-white uppercase mt-3">Métodos de Pago Aceptados</h3>
-                <p class="text-gray-400 text-xs sm:text-sm mt-1">Elige la forma de pago que prefieras al momento de realizar tu pedido en Cúcuta.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                <div class="bg-black border border-gray-800 rounded-xl p-4 flex items-center gap-4 hover:border-red-600/50 transition-all">
-                    <div class="w-12 h-12 bg-red-950/60 border border-red-900/40 rounded-xl flex items-center justify-center text-red-500 text-xl shrink-0">
-                        <i class="fa-solid fa-hand-holding-dollar"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm">Efectivo Contra Entrega</h4>
-                        <p class="text-gray-400 text-xs mt-0.5">Pagas al recibir tu producto en la puerta de tu casa u oficina.</p>
-                    </div>
-                </div>
-
-                <div class="bg-black border border-gray-800 rounded-xl p-4 flex items-center gap-4 hover:border-red-600/50 transition-all">
-                    <div class="w-12 h-12 bg-red-950/60 border border-red-900/40 rounded-xl flex items-center justify-center text-red-500 text-xl shrink-0">
-                        <i class="fa-solid fa-building-columns"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm">Transferencia Bancolombia</h4>
-                        <p class="text-gray-400 text-xs mt-0.5">Transferencia directa y segura al confirmar tu pedido.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PANEL LATERAL DESLIZABLE (DRAWER) DE PEDIDO -->
-    <div id="drawer-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="cerrarPanelPedido()"></div>
-    
-    <aside id="drawer-pedido" class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-gray-950 border-l border-red-900/50 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 overflow-y-auto shadow-2xl">
-        <div>
-            <!-- Header del Drawer -->
-            <div class="flex items-center justify-between border-b border-gray-800 pb-4 mb-6">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-bag-shopping text-red-500 text-xl"></i>
-                    <h3 class="text-lg font-extrabold text-white uppercase tracking-wider">Tu Pedido</h3>
-                </div>
-                <button onclick="cerrarPanelPedido()" class="text-gray-400 hover:text-red-500 text-xl transition-colors">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <!-- Resumen del Producto Seleccionado -->
-            <div class="bg-black border border-gray-800 rounded-xl p-4 mb-6">
-                <span class="text-xs font-bold text-red-500 uppercase tracking-widest block mb-1">Producto Seleccionado</span>
-                <h4 id="drawer-prod-nombre" class="text-white font-bold text-base">---</h4>
-                <div class="flex justify-between items-center mt-3 pt-3 border-t border-gray-900 text-sm">
-                    <span class="text-gray-400">Cantidad: <strong id="drawer-prod-cant" class="text-white">1</strong> unid.</span>
-                    <span class="text-gray-400">Subtotal: <strong id="drawer-prod-subtotal" class="text-red-500">$0</strong></span>
-                </div>
-            </div>
-
-            <!-- Formulario del Cliente -->
-            <form id="form-pedido" onsubmit="enviarPedidoWhatsApp(event)" class="flex flex-col gap-4">
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase mb-2">Tu Nombre Completo *</label>
-                    <input type="text" id="cliente-nombre" required placeholder="Ej: Carlos Pérez" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none transition-all">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase mb-2">Ubicación / Dirección / Barrio en Cúcuta *</label>
-                    <input type="text" id="cliente-ubicacion" required placeholder="Ej: Av. 0 #11-22, Barrio Caobos" class="w-full bg-black border border-gray-800 focus:border-red-600 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none transition-all">
-                </div>
-
-                <div class="bg-red-950/30 border border-red-900/30 rounded-xl p-3 text-xs text-gray-300 mt-2">
-                    <i class="fa-solid fa-truck-fast text-red-500 mr-1"></i> El valor incluye servicio de domicilio directo a tu ubicación en Cúcuta.
-                </div>
-            </form>
-        </div>
-
-        <!-- Footer del Drawer con Total y Botón -->
-        <div class="pt-6 border-t border-gray-800 mt-6">
-            <div class="flex justify-between items-center mb-4">
-                <span class="text-sm text-gray-400 font-bold uppercase">Total a pagar:</span>
-                <span id="drawer-prod-total" class="text-2xl font-black text-white">$0 <span class="text-xs text-red-500 font-normal">COP</span></span>
-            </div>
-            <button type="button" onclick="enviarPedidoWhatsApp(event)" class="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-3 px-4 rounded-xl shadow-[0_0_15px_rgba(0,255,0,0.3)] flex items-center justify-center gap-2 transition-all text-base">
-                <i class="fa-brands fa-whatsapp text-xl"></i> Confirmar y Enviar a WhatsApp
-            </button>
-        </div>
-    </aside>
-
     <!-- Footer -->
-    <footer class="border-t border-gray-900 bg-black/80 py-8 px-4 text-center">
-        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-            <p>© 2026 CENTRO FIT PRO — Suplementos Deportivos en Cúcuta</p>
-            <div class="flex gap-4 items-center">
-                <a href="https://www.instagram.com/centrofitpro_cucuta/?hl=es-la" target="_blank" class="text-gray-400 hover:text-red-500 transition-colors flex items-center gap-1.5">
-                    <i class="fa-brands fa-instagram text-lg text-red-500"></i> Instagram
-                </a>
-                <span>•</span>
-                <a href="https://wa.me/573212277162" target="_blank" class="text-gray-400 hover:text-red-500 transition-colors flex items-center gap-1.5">
-                    <i class="fa-brands fa-whatsapp text-lg text-green-500"></i> WhatsApp
-                </a>
-            </div>
-        </div>
+    <footer class="border-t border-red-900/40 bg-black py-6 text-center text-xs text-gray-500">
+        <p>&copy; 2026 CENTRO FIT PRO Cúcuta. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- JAVASCRIPT DE FUNCIONALIDAD -->
+    <!-- Scripts de la aplicación -->
     <script>
-        let productoActual = {
-            nombre: '',
-            precioUnitario: 0,
-            cantidad: 1,
-            subtotal: 0
-        };
-
-        // Lógica Calculadora Creatina
         function calcularCreatina() {
             const peso = parseFloat(document.getElementById('peso-creatina').value);
             const nivel = document.getElementById('nivel-creatina').value;
-            const contenedor = document.getElementById('resultado-creatina');
+            const res = document.getElementById('resultado-creatina');
 
-            if (!peso || peso <= 0 || peso > 300) {
-                alert('Por favor ingresa un peso válido en kg.');
+            if (!peso || peso <= 0) {
+                res.innerHTML = '<p class="text-red-500 text-xs font-bold">Por favor ingresa un peso válido.</p>';
                 return;
             }
 
             let gramos = peso * 0.1;
-            if (nivel === 'intenso') gramos *= 1.15;
-            let gramosFinal = parseFloat(gramos.toFixed(1));
-            let scoops = (gramosFinal / 5).toFixed(1);
+            if (nivel === 'intenso' && gramos < 5) gramos = 5;
+            if (gramos > 10) gramos = 10;
+            const scoops = (gramos / 5).toFixed(1);
 
-            contenedor.innerHTML = `
-                <span class="text-xs text-gray-400 uppercase font-bold">Dosis en el Tarro:</span>
-                <div class="text-xl sm:text-2xl font-black text-red-500 my-0.5">${gramosFinal} g (${scoops} scoop)</div>
-                <p class="text-gray-300 text-[11px]">Tomar diario disuelto en agua o tu bebida favorita.</p>
+            res.innerHTML = `
+                <p class="text-white text-sm font-bold">Dosis recomendada:</p>
+                <p class="text-red-500 font-black text-base mt-1">${gramos.toFixed(1)} gramos al día (~${scoops} scoop)</p>
             `;
         }
 
-        // Lógica Calculadora Proteína en Polvo
         function calcularProteina() {
             const peso = parseFloat(document.getElementById('peso-proteina').value);
             const objetivo = document.getElementById('objetivo-proteina').value;
-            const contenedor = document.getElementById('resultado-proteina');
+            const res = document.getElementById('resultado-proteina');
 
-            if (!peso || peso <= 0 || peso > 300) {
-                alert('Por favor ingresa un peso válido en kg.');
+            if (!peso || peso <= 0) {
+                res.innerHTML = '<p class="text-red-500 text-xs font-bold">Por favor ingresa un peso válido.</p>';
                 return;
             }
 
-            let scoops = objetivo === 'volumen' ? '1.5 scoops' : '1 scoop';
-            let gramosPolvo = objetivo === 'volumen' ? '45 gramos de polvo' : '30 gramos de polvo';
+            let gramosProteina = objetivo === 'volumen' ? peso * 2.0 : peso * 1.6;
+            let gramosPolvo = gramosProteina * 0.4; 
+            if (gramosPolvo > 45) gramosPolvo = 45;
 
-            contenedor.innerHTML = `
-                <span class="text-xs text-gray-400 uppercase font-bold">Porción de Batido Sugerida:</span>
-                <div class="text-xl sm:text-2xl font-black text-red-500 my-0.5">${scoops} (${gramosPolvo})</div>
-                <p class="text-gray-300 text-[11px]">Cantidad ideal por batido para tu objetivo físico.</p>
+            res.innerHTML = `
+                <p class="text-white text-sm font-bold">Proteína total sugerida al día:</p>
+                <p class="text-red-500 font-black text-base mt-1">~${gramosPolvo.toFixed(0)}g en polvo (${(gramosPolvo/30).toFixed(1)} scoops)</p>
             `;
         }
 
-        // Función de Búsqueda Dinámica
         function buscarProductos() {
             const query = document.getElementById('buscador-productos').value.toLowerCase();
-            const productos = document.querySelectorAll('.producto-item');
+            const items = document.querySelectorAll('.producto-item');
 
-            productos.forEach(prod => {
-                const nombre = prod.querySelector('h3').textContent.toLowerCase();
-                const descripcion = prod.querySelector('p').textContent.toLowerCase();
-                const categoria = prod.querySelector('span').textContent.toLowerCase();
-
-                if (nombre.includes(query) || descripcion.includes(query) || categoria.includes(query)) {
-                    prod.style.display = 'flex';
+            items.forEach(item => {
+                const texto = item.innerText.toLowerCase();
+                if (texto.includes(query)) {
+                    item.style.display = 'flex';
                 } else {
-                    prod.style.display = 'none';
+                    item.style.display = 'none';
                 }
             });
         }
 
-        // Acordeón Preguntas Frecuentes
-        function toggleFaq(btn) {
-            const respuesta = btn.nextElementSibling;
-            const icono = btn.querySelector('i');
-            
-            respuesta.classList.toggle('hidden');
-            icono.classList.toggle('rotate-180');
-        }
-
-        function filtrarProductos(categoria, btnElement) {
-            const productos = document.querySelectorAll('.producto-item');
+        function filtrarProductos(categoria, btn) {
             const botones = document.querySelectorAll('.filtro-btn');
-            
-            botones.forEach(btn => {
-                btn.classList.remove('bg-red-600', 'text-white', 'shadow-[0_0_15px_rgba(255,0,0,0.5)]');
-                btn.classList.add('bg-gray-900', 'text-gray-400', 'border-gray-800');
+            botones.forEach(b => {
+                b.classList.remove('bg-red-600', 'text-white', 'shadow-[0_0_15px_rgba(255,0,0,0.5)]');
+                b.classList.add('bg-gray-900', 'text-gray-400', 'border', 'border-gray-800');
             });
-            
-            btnElement.classList.remove('bg-gray-900', 'text-gray-400', 'border-gray-800');
-            btnElement.classList.add('bg-red-600', 'text-white', 'shadow-[0_0_15px_rgba(255,0,0,0.5)]');
+            btn.classList.remove('bg-gray-900', 'text-gray-400', 'border', 'border-gray-800');
+            btn.classList.add('bg-red-600', 'text-white', 'shadow-[0_0_15px_rgba(255,0,0,0.5)]');
 
-            productos.forEach(prod => {
-                if (categoria === 'todos' || prod.dataset.category === categoria) {
-                    prod.style.display = 'flex';
+            const items = document.querySelectorAll('.producto-item');
+            items.forEach(item => {
+                if (categoria === 'todos' || item.getAttribute('data-category') === categoria) {
+                    item.style.display = 'flex';
                 } else {
-                    prod.style.display = 'none';
+                    item.style.display = 'none';
                 }
             });
         }
 
-        function formatearCOP(valor) {
-            return '$' + valor.toLocaleString('es-CO') + ' COP';
-        }
+        function abrirPanelPedido(nombreProducto, precioUnitario, selectId) {
+            const cantidad = parseInt(document.getElementById(selectId).value) || 1;
+            const subtotal = precioUnitario * cantidad;
 
-        function abrirPanelPedido(nombre, precio, selectId) {
-            const cant = parseInt(document.getElementById(selectId).value) || 1;
-            const subtotal = precio * cant;
+            const nombreCliente = prompt("Ingrese el Nombre del Cliente:", "Jesús");
+            if (!nombreCliente) return;
 
-            productoActual = {
-                nombre: nombre,
-                precioUnitario: precio,
-                cantidad: cant,
-                subtotal: subtotal
-            };
+            const ubicacionCliente = prompt("Ingrese la Ubicación / Barrio en Cúcuta:", "Avenida 18 #8-31 Barrio San Miguel");
+            if (!ubicacionCliente) return;
 
-            document.getElementById('drawer-prod-nombre').textContent = nombre;
-            document.getElementById('drawer-prod-cant').textContent = cant;
-            document.getElementById('drawer-prod-subtotal').textContent = formatearCOP(subtotal);
-            document.getElementById('drawer-prod-total').textContent = formatearCOP(subtotal);
+            const totalTexto = subtotal.toLocaleString('es-CO') + " COP";
 
-            const overlay = document.getElementById('drawer-overlay');
-            const drawer = document.getElementById('drawer-pedido');
-
-            overlay.classList.remove('opacity-0', 'pointer-events-none');
-            drawer.classList.remove('translate-x-full');
-        }
-
-        function cerrarPanelPedido() {
-            const overlay = document.getElementById('drawer-overlay');
-            const drawer = document.getElementById('drawer-pedido');
-
-            overlay.classList.add('opacity-0', 'pointer-events-none');
-            drawer.classList.add('translate-x-full');
-        }
-
-        function enviarPedidoWhatsApp(event) {
-            if (event) event.preventDefault();
-
-            const nombreCliente = document.getElementById('cliente-nombre').value.trim();
-            const ubicacionCliente = document.getElementById('cliente-ubicacion').value.trim();
-
-            if (!nombreCliente || !ubicacionCliente) {
-                alert('Por favor completa tu nombre y dirección/barrio para continuar.');
-                return;
-            }
-
-            const totalTexto = formatearCOP(productoActual.subtotal);
-
-            const mensaje = `\u{1F3CB}\u{FE0F}\u{200D}\u{2642}\u{FE0F} NUEVO PEDIDO - CENTRO FIT PRO CÚCUTA \u{1F3CB}\u{FE0F}\u{200D}\u{2642}\u{FE0F}
+            const mensaje = `🚨 NUEVO PEDIDO - CENTRO FIT PRO CÚCUTA 🚨
 -------------------------------------------
-\u{1F464} Cliente: ${nombreCliente}
-\u{1F4CD} Ubicación/Barrio: ${ubicacionCliente}
+👤 Cliente: ${nombreCliente}
+📍 Ubicación/Barrio: ${ubicacionCliente}
 -------------------------------------------
 
-\u{1F4E6} DETALLE DE SUPLEMENTOS: 
-1. ${productoActual.nombre}
-   \u{2514} Cantidad: ${productoActual.cantidad} unid. | Subtotal: ${totalTexto}
+📦 DETALLE DE SUPLEMENTOS: 
+1. ${nombreProducto}
+   └ Cantidad: ${cantidad} unid. | Subtotal: ${totalTexto}
 
 -------------------------------------------
-\u{1F4B0} TOTAL A PAGAR: ${totalTexto}
+💰 TOTAL A PAGAR: ${totalTexto}
 -------------------------------------------
 ¡Quedo atento a los datos de transferencia / pago contraentrega!`;
 
-            const urlWhatsApp = `https://wa.me/573212277162?text=${encodeURIComponent(mensaje)}`;
-            window.open(urlWhatsApp, '_blank');
+            const urlWhatsapp = `https://wa.me/573212277162?text=${encodeURIComponent(mensaje)}`;
+            window.open(urlWhatsapp, '_blank');
         }
     </script>
 </body>
