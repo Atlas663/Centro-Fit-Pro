@@ -777,40 +777,5 @@
             window.open(urlWhatsApp, '_blank');
         }
     </script>
-    <!-- CÓDIGO PARA GENERAR MENSAJE DE WHATSAPP CON TU ESTRUCTURA EXACTA -->
-<script>
-function enviarPedidoWhatsApp(nombreCliente, ubicacionBarrio, listaProductos, telefonoCliente = "") {
-  let detalleTexto = "";
-  let totalPagar = 0;
-
-  listaProductos.forEach((item, index) => {
-    const subtotal = item.precio * item.cantidad;
-    totalPagar += subtotal;
-    detalleTexto += `${index + 1}. ${item.nombre}\n   └ Cantidad: ${item.cantidad} unid. | Subtotal: $${subtotal.toLocaleString('es-CO')} COP\n`;
-  });
-
-  const mensaje = `🚨 NUEVO PEDIDO - CENTRO FIT PRO CÚCUTA 🚨
--------------------------------------------
-👤 Cliente: ${nombreCliente}
-📍 Ubicación/Barrio: ${ubicacionBarrio}
--------------------------------------------
-
-📦 DETALLE DE SUPLEMENTOS: 
-${detalleTexto}
--------------------------------------------
-💰 TOTAL A PAGAR: $${totalPagar.toLocaleString('es-CO')} COP
--------------------------------------------
-¡Quedo atento a los datos de transferencia / pago contraentrega!`;
-
-  const url = telefonoCliente 
-    ? `https://wa.me/57${telefonoCliente}?text=${encodeURIComponent(mensaje)}`
-    : `https://api.whatsapp.com/send?text=${encodeURIComponent(mensaje)}`;
-
-  window.open(url, '_blank');
-}
-    <button onclick="enviarPedidoWhatsApp('Jesús', 'Avenida 18 #8-31 Barrio San Miguel', [{nombre: 'Whey Army 2 LB', cantidad: 2, precio: 164000}])">
-  Pedir por WhatsApp
-</button>
-</script>
 </body>
 </html>
