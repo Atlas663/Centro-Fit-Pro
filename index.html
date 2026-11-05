@@ -422,7 +422,7 @@
                 </div>
             </div>
 
-            <!-- Producto 6: Mega Gainer 1 LB (Con nuevo enlace de imagen proporcionado) -->
+            <!-- Producto 6: Mega Gainer 1 LB -->
             <div class="producto-item bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden hover:border-red-600/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.25)] flex flex-col justify-between" data-category="ganador">
                 <div>
                     <div class="h-64 m-4 rounded-xl overflow-hidden bg-white flex items-center justify-center p-4 shadow-md">
@@ -544,29 +544,15 @@
         function abrirPanelPedido(nombreProducto, precioUnitario, selectId) {
             const cantidad = parseInt(document.getElementById(selectId).value) || 1;
             const subtotal = precioUnitario * cantidad;
-
-            const nombreCliente = prompt("Ingrese el Nombre del Cliente:", "Jesús");
-            if (!nombreCliente) return;
-
-            const ubicacionCliente = prompt("Ingrese la Ubicación / Barrio en Cúcuta:", "Avenida 18 #8-31 Barrio San Miguel");
-            if (!ubicacionCliente) return;
-
             const totalTexto = subtotal.toLocaleString('es-CO') + " COP";
 
             const mensaje = `🚨 NUEVO PEDIDO - CENTRO FIT PRO CÚCUTA 🚨
 -------------------------------------------
-👤 Cliente: ${nombreCliente}
-📍 Ubicación/Barrio: ${ubicacionCliente}
+📦 PRODUCTO: ${nombreProducto}
+🔢 CANTIDAD: ${cantidad} unid.
+💰 TOTAL A PAGAR: ${totalTexto} (Domicilio Gratis)
 -------------------------------------------
-
-📦 DETALLE DE SUPLEMENTOS: 
-1. ${nombreProducto}
-   └ Cantidad: ${cantidad} unid. | Subtotal: ${totalTexto}
-
--------------------------------------------
-💰 TOTAL A PAGAR: ${totalTexto}
--------------------------------------------
-¡Quedo atento a los datos de transferencia / pago contraentrega!`;
+¡Hola! Quisiera realizar este pedido. Por favor me brindan información para coordinar el pago y la entrega.`;
 
             const urlWhatsapp = `https://wa.me/573212277162?text=${encodeURIComponent(mensaje)}`;
             window.open(urlWhatsapp, '_blank');
