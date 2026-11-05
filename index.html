@@ -26,14 +26,27 @@
     </script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilo de Fondo de Mancuernas y Pesas -->
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.92)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1500&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
 </head>
-<body class="bg-black text-gray-100 min-h-screen font-sans flex flex-col justify-between overflow-x-hidden relative">
-
-    <!-- Fondo general temático de pesas y mancuernas -->
-    <div class="fixed inset-0 pointer-events-none z-0 opacity-15 mix-blend-luminosity bg-cover bg-center" style="
-        background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1500&auto=format&fit=crop');
-    "></div>
-    <div class="fixed inset-0 pointer-events-none z-0 bg-gradient-to-b from-black/90 via-black/95 to-black"></div>
+<body class="bg-black text-gray-100 min-h-screen font-sans flex flex-col justify-between overflow-x-hidden">
 
     <!-- Header / Navbar -->
     <header class="border-b border-red-900/50 bg-black/90 sticky top-0 z-50 backdrop-blur-md">
@@ -58,7 +71,7 @@
     </header>
 
     <!-- Banner Principal -->
-    <section class="relative bg-black py-20 px-4 border-b border-red-600/50 text-center overflow-hidden z-10">
+    <section class="relative bg-black py-20 px-4 border-b border-red-600/50 text-center overflow-hidden">
         <div class="absolute inset-0 filter brightness-130 contrast-110" style="
             background-image: 
                 linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.2), rgba(0,0,0,0.5)),
@@ -120,7 +133,7 @@
     </section>
 
     <!-- SECCIÓN: Calculadoras de Dosis para Suplementos -->
-    <section class="max-w-6xl mx-auto px-4 mb-12 w-full relative z-10">
+    <section class="max-w-6xl mx-auto px-4 mb-12 w-full">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             <!-- Calculadora de Dosis de Creatina -->
@@ -185,7 +198,7 @@
     </section>
 
     <!-- SECCIÓN: Tabla Comparativa Rápida de Proteínas -->
-    <section class="max-w-6xl mx-auto px-4 mb-12 w-full relative z-10">
+    <section class="max-w-6xl mx-auto px-4 mb-12 w-full">
         <div class="bg-gray-950 border border-red-900/40 rounded-3xl p-6 sm:p-8 shadow-[0_0_20px_rgba(255,0,0,0.15)]">
             <div class="text-center mb-6">
                 <span class="text-xs font-bold text-red-500 uppercase tracking-widest bg-red-950/70 border border-red-900/50 px-3 py-1 rounded-full">
@@ -231,7 +244,7 @@
     </section>
 
     <!-- Catálogo de Productos -->
-    <main id="catalogo-productos" class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full relative z-10">
+    <main id="catalogo-productos" class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
         
         <!-- BARRA DE BÚSQUEDA DINÁMICA -->
         <div class="max-w-md mx-auto mb-6">
@@ -467,7 +480,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-red-900/40 bg-black py-6 text-center text-xs text-gray-500 relative z-10">
+    <footer class="border-t border-red-900/40 bg-black py-6 text-center text-xs text-gray-500">
         <p>&copy; 2026 CENTRO FIT PRO Cúcuta. Todos los derechos reservados.</p>
     </footer>
 
